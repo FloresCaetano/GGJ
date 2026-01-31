@@ -37,9 +37,8 @@ animations = [{
 radius = 15.0
 height = 66.0
 
-[node name="Player" type="CharacterBody2D" unique_id=624387848 node_paths=PackedStringArray("mask_sprite")]
+[node name="Player" type="CharacterBody2D" unique_id=624387848]
 script = ExtResource("1_t0cpu")
-mask_sprite = NodePath("")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2020603925 groups=["player"]]
 material = SubResource("ShaderMaterial_t0cpu")

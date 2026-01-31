@@ -46,6 +46,17 @@ grow_vertical = 2
 layout_mode = 1
 scene_set = Array[ExtResource("2_qgp7e")]([SubResource("Resource_4cspf"), SubResource("Resource_spabv"), SubResource("Resource_h6yxe")])
 
+[node name="Player" parent="." unique_id=624387848 instance=ExtResource("3_sra25")]
+position = Vector2(195, 427)
+speed = 250.0
+
+[node name="MaskSlot" type="Node2D" parent="Player" unique_id=330185453]
+position = Vector2(10, -150)
+scale = Vector2(0.16, 0.16)
+script = SubResource("GDScript_sra25")
+
+[node name="MaskSprite" type="Sprite2D" parent="Player/MaskSlot" unique_id=970320329]
+
 [node name="Inventory" type="VSplitContainer" parent="." unique_id=581429075]
 custom_minimum_size = Vector2(1366, 768)
 layout_mode = 0
@@ -54,13 +65,3 @@ offset_bottom = 768.0
 
 [node name="MaskInventory" parent="Inventory" unique_id=1560759894 groups=["mask_inventory"] instance=ExtResource("2_sra25")]
 layout_mode = 2
-
-[node name="Player" parent="." unique_id=624387848 instance=ExtResource("3_sra25")]
-position = Vector2(195, 427)
-
-[node name="MaskSlot" type="Node2D" parent="Player" unique_id=330185453]
-position = Vector2(10, -150)
-scale = Vector2(0.16, 0.16)
-script = SubResource("GDScript_sra25")
-
-[node name="MaskSprite" type="Sprite2D" parent="Player/MaskSlot" unique_id=970320329]

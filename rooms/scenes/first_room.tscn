@@ -70,36 +70,34 @@ offset_right = 3413.0
 offset_bottom = 1920.0
 texture = ExtResource("1_2e2in")
 
-[node name="RoomColliders" type="Node" parent="." unique_id=1688740313]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1784768570]
 
-[node name="Area2D" type="Area2D" parent="RoomColliders" unique_id=843059451]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomColliders/Area2D" unique_id=458103321]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=458103321]
 position = Vector2(1105, 530)
 scale = Vector2(0.39999977, 0.39999977)
 shape = SubResource("RectangleShape2D_sf0r0")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="RoomColliders/Area2D" unique_id=411704451]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=411704451]
 position = Vector2(803, 558)
 shape = SubResource("RectangleShape2D_x602g")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="RoomColliders/Area2D" unique_id=1514584695]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1514584695]
 position = Vector2(469.75, 595)
 shape = SubResource("RectangleShape2D_2ghsh")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="RoomColliders/Area2D" unique_id=488110659]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=488110659]
 position = Vector2(133, 630)
 shape = SubResource("SegmentShape2D_bebti")
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="RoomColliders/Area2D" unique_id=529382628]
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=529382628]
 position = Vector2(49, 649)
 shape = SubResource("SegmentShape2D_gx4rs")
 
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="RoomColliders/Area2D" unique_id=974033416]
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=974033416]
 shape = SubResource("WorldBoundaryShape2D_sf0r0")
 
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="RoomColliders/Area2D" unique_id=1315575482]
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D" unique_id=1315575482]
 shape = SubResource("WorldBoundaryShape2D_x602g")
 
-[node name="CollisionShape2D8" type="CollisionShape2D" parent="RoomColliders/Area2D" unique_id=1670390428]
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D" unique_id=1670390428]
 shape = SubResource("WorldBoundaryShape2D_2ghsh")

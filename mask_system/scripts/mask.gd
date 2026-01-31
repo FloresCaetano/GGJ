@@ -33,10 +33,11 @@ func _on_gui_input(event: InputEvent) -> void:
 			background.material.set_shader_parameter("hue", GAMEMANAGER.current_background_hue)
 		player.material.set_shader_parameter("hue", GAMEMANAGER.current_player_hue)
 		
-		$"../../../BG".visible = false
-		tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-		tween.tween_property(self, "global_position", PATHS.mask_slot.global_position, 1.0)
-		await tween.finished
+		mask_inventory.mask_select_animation(self)
+		queue_free()
+		
+		
+		
 		
 
 func _on_mouse_entered() -> void:
@@ -46,6 +47,5 @@ func _on_mouse_entered() -> void:
 
 
 func _on_mouse_exited() -> void:
-	if tween: tween.stop()
 	tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	tween.tween_property(self, "scale", Vector2.ONE, 0.5)

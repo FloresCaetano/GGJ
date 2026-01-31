@@ -27,13 +27,6 @@ scene_value = 0.2
 texture = ExtResource("3_quioh")
 metadata/_custom_type_script = "uid://cbapvmrcdtony"
 
-[sub_resource type="GDScript" id="GDScript_sra25"]
-script/source = "extends Node2D
-
-func _ready() -> void:
-	PATHS.mask_slot = self
-"
-
 [node name="TestScene" type="Control" unique_id=621119972]
 layout_mode = 3
 anchors_preset = 15
@@ -57,10 +50,3 @@ layout_mode = 2
 
 [node name="Player" parent="." unique_id=624387848 instance=ExtResource("3_sra25")]
 position = Vector2(195, 427)
-
-[node name="MaskSlot" type="Node2D" parent="Player" unique_id=330185453]
-position = Vector2(10, -150)
-scale = Vector2(0.16, 0.16)
-script = SubResource("GDScript_sra25")
-
-[node name="MaskSprite" type="Sprite2D" parent="Player/MaskSlot" unique_id=970320329]

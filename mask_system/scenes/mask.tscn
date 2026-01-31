@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://fav75tua3y7t"]
+
+[ext_resource type="Script" uid="uid://c0ryudb1iosj5" path="res://mask_system/scripts/mask.gd" id="1_ywb0q"]
+[ext_resource type="Texture2D" uid="uid://chsnu1e8yrsls" path="res://mask_system/assets/test_mask.png" id="2_ywb0q"]
+
+[node name="Mask" type="Control" unique_id=37918954 node_paths=PackedStringArray("texture_rect")]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(100, 100)
+mouse_filter = 1
+script = ExtResource("1_ywb0q")
+texture_rect = NodePath("TextureRect")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=121083859]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ywb0q")
+expand_mode = 3
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

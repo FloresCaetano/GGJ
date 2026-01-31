@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="MaskItem" format=3 uid="uid://wfq5dovsi7xc"]
+
+[ext_resource type="Script" uid="uid://cbapvmrcdtony" path="res://mask_system/resources/res_mask.gd" id="1_mcc3f"]
+
+[resource]
+script = ExtResource("1_mcc3f")
+metadata/_custom_type_script = "uid://cbapvmrcdtony"

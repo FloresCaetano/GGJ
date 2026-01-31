@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://cxm7kv3vrpkj6"]
+
+[ext_resource type="Texture2D" uid="uid://b1bko6801j66w" path="res://rooms/assets/first_room/background.jpeg" id="1_2e2in"]
+[ext_resource type="Script" uid="uid://bqtf6ggfnsfe6" path="res://rooms/scripts/room_template.gd" id="1_x602g"]
+[ext_resource type="Script" uid="uid://cbapvmrcdtony" path="res://mask_system/resources/res_mask.gd" id="2_2ghsh"]
+[ext_resource type="Texture2D" uid="uid://chsnu1e8yrsls" path="res://mask_system/assets/test_mask.png" id="3_bebti"]
+
+[sub_resource type="Resource" id="Resource_gx4rs"]
+script = ExtResource("2_2ghsh")
+player_value = 0.2
+texture = ExtResource("3_bebti")
+metadata/_custom_type_script = "uid://cbapvmrcdtony"
+
+[sub_resource type="Resource" id="Resource_f4j18"]
+script = ExtResource("2_2ghsh")
+scene_value = 0.2
+texture = ExtResource("3_bebti")
+metadata/_custom_type_script = "uid://cbapvmrcdtony"
+
+[sub_resource type="Resource" id="Resource_jfqkj"]
+script = ExtResource("2_2ghsh")
+player_value = 0.2
+scene_value = 0.2
+texture = ExtResource("3_bebti")
+metadata/_custom_type_script = "uid://cbapvmrcdtony"
+
+[node name="FirstRoom" type="Control" unique_id=1064111797 node_paths=PackedStringArray("images")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x602g")
+scene_set = Array[ExtResource("2_2ghsh")]([SubResource("Resource_gx4rs"), SubResource("Resource_f4j18"), SubResource("Resource_jfqkj")])
+images = [NodePath("Images/Background")]
+
+[node name="Images" type="Node2D" parent="." unique_id=858923626]
+scale = Vector2(0.4, 0.4)
+
+[node name="Background" type="TextureRect" parent="Images" unique_id=643164611 groups=["background"]]
+offset_right = 3413.0
+offset_bottom = 1920.0
+texture = ExtResource("1_2e2in")

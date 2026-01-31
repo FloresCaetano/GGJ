@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://dy31n8sdptxwi"]
+
+[ext_resource type="Texture2D" uid="uid://cqtkwmf3y0uao" path="res://player/assets/player.png" id="1_apn28"]
+[ext_resource type="Script" uid="uid://u3v3m82hggc5" path="res://player/scripts/player.gd" id="1_t0cpu"]
+
+[sub_resource type="Shader" id="Shader_c7tem"]
+code = "shader_type canvas_item;
+// Aquí pasas valores como 0.20 para oscurecer
+uniform float hue = 0.0;
+
+void fragment() {
+    vec4 tex_color = texture(TEXTURE, UV);
+    
+    // Restamos el factor a los canales RGB
+    // clamp evita que los valores sean negativos (negro absoluto)
+    tex_color.rgb = clamp(tex_color.rgb - hue, 0.0, 1.0);
+    
+    COLOR = tex_color;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t0cpu"]
+shader = SubResource("Shader_c7tem")
+shader_parameter/hue = 0.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t0cpu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_apn28")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8h4do"]
+radius = 15.0
+height = 66.0
+
+[node name="Player" type="CharacterBody2D" unique_id=624387848 node_paths=PackedStringArray("mask_sprite")]
+script = ExtResource("1_t0cpu")
+mask_sprite = NodePath("")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2020603925 groups=["player"]]
+material = SubResource("ShaderMaterial_t0cpu")
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_t0cpu")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=73866431]
+position = Vector2(23, 271)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_8h4do")

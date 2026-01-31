@@ -1,0 +1,136 @@
+[gd_scene format=3 uid="uid://cx5t16wi516tf"]
+
+[ext_resource type="Script" uid="uid://cbapvmrcdtony" path="res://mask_system/resources/res_mask.gd" id="1_ruel1"]
+[ext_resource type="PackedScene" uid="uid://8tt6f0nvl1yj" path="res://mask_system/scenes/mask_inventory.tscn" id="2_ovq6q"]
+[ext_resource type="Texture2D" uid="uid://chsnu1e8yrsls" path="res://mask_system/assets/test_mask.png" id="2_rndu6"]
+[ext_resource type="Texture2D" uid="uid://b1bko6801j66w" path="res://mask_system/assets/background.jpeg" id="3_etoqp"]
+[ext_resource type="Texture2D" uid="uid://cqtkwmf3y0uao" path="res://mask_system/assets/player.png" id="4_t3yfe"]
+[ext_resource type="PackedScene" uid="uid://fav75tua3y7t" path="res://mask_system/scenes/mask.tscn" id="5_22giv"]
+
+[sub_resource type="GDScript" id="GDScript_ruel1"]
+script/source = "extends Control
+@export var scene_set : Array[MaskItem] 
+@onready var mask_inventory : MaskInventory = get_tree().get_first_node_in_group(\"mask_inventory\")
+
+
+func _ready() -> void:
+	mask_inventory.reload_masks(scene_set)
+	GAMEMANAGER.active_room = self
+"
+
+[sub_resource type="Resource" id="Resource_22giv"]
+script = ExtResource("1_ruel1")
+player_value = 0.05
+texture = ExtResource("2_rndu6")
+metadata/_custom_type_script = "uid://cbapvmrcdtony"
+
+[sub_resource type="Resource" id="Resource_1lymg"]
+script = ExtResource("1_ruel1")
+player_value = 0.01
+scene_value = 0.05
+texture = ExtResource("2_rndu6")
+metadata/_custom_type_script = "uid://cbapvmrcdtony"
+
+[sub_resource type="Resource" id="Resource_ila7j"]
+script = ExtResource("1_ruel1")
+scene_value = 0.2
+texture = ExtResource("2_rndu6")
+metadata/_custom_type_script = "uid://cbapvmrcdtony"
+
+[sub_resource type="Shader" id="Shader_c7tem"]
+code = "shader_type canvas_item;
+// Aquí pasas valores como 0.20 para oscurecer
+uniform float hue = 0.0;
+
+void fragment() {
+    vec4 tex_color = texture(TEXTURE, UV);
+    
+    // Restamos el factor a los canales RGB
+    // clamp evita que los valores sean negativos (negro absoluto)
+    tex_color.rgb = clamp(tex_color.rgb - hue, 0.0, 1.0);
+    
+    COLOR = tex_color;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_22giv"]
+shader = SubResource("Shader_c7tem")
+shader_parameter/hue = 0.0
+
+[sub_resource type="Shader" id="Shader_22giv"]
+code = "shader_type canvas_item;
+// Aquí pasas valores como 0.20 para oscurecer
+uniform float hue = 0.0;
+
+void fragment() {
+    vec4 tex_color = texture(TEXTURE, UV);
+    
+    // Restamos el factor a los canales RGB
+    // clamp evita que los valores sean negativos (negro absoluto)
+    tex_color.rgb = clamp(tex_color.rgb - hue, 0.0, 1.0);
+    
+    COLOR = tex_color;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1lymg"]
+shader = SubResource("Shader_22giv")
+shader_parameter/hue = 0.0
+
+[node name="TestScene" type="Control" unique_id=621119972]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FirstRoom" type="Control" parent="." unique_id=840515124]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_ruel1")
+scene_set = Array[ExtResource("1_ruel1")]([SubResource("Resource_22giv"), SubResource("Resource_1lymg"), SubResource("Resource_ila7j")])
+
+[node name="Images" type="Node2D" parent="FirstRoom" unique_id=202112525]
+scale = Vector2(0.4, 0.4)
+
+[node name="Background" type="TextureRect" parent="FirstRoom/Images" unique_id=1364738221 groups=["background"]]
+material = SubResource("ShaderMaterial_22giv")
+offset_right = 3413.0
+offset_bottom = 1920.0
+texture = ExtResource("3_etoqp")
+
+[node name="Player" type="TextureRect" parent="FirstRoom/Images" unique_id=28762189 groups=["player"]]
+material = SubResource("ShaderMaterial_1lymg")
+offset_right = 3413.0
+offset_bottom = 1920.0
+texture = ExtResource("4_t3yfe")
+stretch_mode = 2
+
+[node name="PlaceHolderMask" parent="FirstRoom/Images" unique_id=37918954 instance=ExtResource("5_22giv")]
+custom_minimum_size = Vector2(0, 0)
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 457.49994
+offset_top = 477.49994
+offset_right = 657.50024
+offset_bottom = 677.49994
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Marker2D" type="Marker2D" parent="FirstRoom/Images" unique_id=1654687081]
+scale = Vector2(0.45, 0.45)
+
+[node name="Inventory" type="VSplitContainer" parent="." unique_id=581429075]
+custom_minimum_size = Vector2(1366, 768)
+layout_mode = 0
+offset_right = 1366.0
+offset_bottom = 768.0
+
+[node name="MaskInventory" parent="Inventory" unique_id=1560759894 groups=["mask_inventory"] instance=ExtResource("2_ovq6q")]
+layout_mode = 2

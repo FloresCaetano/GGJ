@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://cx5t16wi516tf"]
+
+[ext_resource type="Script" uid="uid://cbapvmrcdtony" path="res://mask_system/resources/res_mask.gd" id="1_ruel1"]
+[ext_resource type="PackedScene" uid="uid://8tt6f0nvl1yj" path="res://mask_system/scenes/mask_inventory.tscn" id="2_ovq6q"]
+[ext_resource type="Texture2D" uid="uid://chsnu1e8yrsls" path="res://mask_system/assets/test_mask.png" id="2_rndu6"]
+
+[sub_resource type="GDScript" id="GDScript_ruel1"]
+script/source = "extends Node2D
+@export var scene_set : Array[MaskItem] 
+@onready var mask_inventory : MaskInventory = get_tree().get_first_node_in_group(\"mask_inventory\")
+
+func _ready() -> void:
+	mask_inventory.reload_masks(scene_set)
+"
+
+[sub_resource type="Resource" id="Resource_ovq6q"]
+script = ExtResource("1_ruel1")
+player_value = -20.0
+texture = ExtResource("2_rndu6")
+metadata/_custom_type_script = "uid://cbapvmrcdtony"
+
+[sub_resource type="Resource" id="Resource_rndu6"]
+script = ExtResource("1_ruel1")
+player_value = -10.0
+scene_value = -5.0
+texture = ExtResource("2_rndu6")
+metadata/_custom_type_script = "uid://cbapvmrcdtony"
+
+[sub_resource type="Resource" id="Resource_etoqp"]
+script = ExtResource("1_ruel1")
+scene_value = -20.0
+texture = ExtResource("2_rndu6")
+metadata/_custom_type_script = "uid://cbapvmrcdtony"
+
+[node name="TestScene" type="Node2D" unique_id=775404659]
+
+[node name="FirstRoom" type="Node2D" parent="." unique_id=1950601296]
+script = SubResource("GDScript_ruel1")
+scene_set = Array[ExtResource("1_ruel1")]([SubResource("Resource_ovq6q"), SubResource("Resource_rndu6"), SubResource("Resource_etoqp")])
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=859670900]
+custom_minimum_size = Vector2(1366, 768)
+offset_right = 1366.0
+offset_bottom = 768.0
+
+[node name="Player" type="ColorRect" parent="." unique_id=1566585351]
+offset_left = 104.0
+offset_top = 330.0
+offset_right = 157.0
+offset_bottom = 434.0
+color = Color(1, 1, 0.46666667, 1)
+
+[node name="Inventory" type="VSplitContainer" parent="." unique_id=581429075]
+custom_minimum_size = Vector2(1366, 768)
+offset_right = 1366.0
+offset_bottom = 768.0
+
+[node name="MaskInventory" parent="Inventory" unique_id=1560759894 groups=["mask_inventory"] instance=ExtResource("2_ovq6q")]
+layout_mode = 2

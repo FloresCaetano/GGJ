@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://cx5t16wi516tf"]
+
+[ext_resource type="PackedScene" uid="uid://cxm7kv3vrpkj6" path="res://rooms/scenes/first_room.tscn" id="1_w1gud"]
+[ext_resource type="Script" uid="uid://cbapvmrcdtony" path="res://mask_system/resources/res_mask.gd" id="2_qgp7e"]
+[ext_resource type="PackedScene" uid="uid://8tt6f0nvl1yj" path="res://mask_system/scenes/mask_inventory.tscn" id="2_sra25"]
+[ext_resource type="Texture2D" uid="uid://chsnu1e8yrsls" path="res://mask_system/assets/test_mask.png" id="3_quioh"]
+[ext_resource type="PackedScene" uid="uid://dy31n8sdptxwi" path="res://player/scenes/player.tscn" id="3_sra25"]
+
+[sub_resource type="Resource" id="Resource_4cspf"]
+script = ExtResource("2_qgp7e")
+player_value = 0.2
+texture = ExtResource("3_quioh")
+metadata/_custom_type_script = "uid://cbapvmrcdtony"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_arywy"]
+load_path = "res://.godot/imported/test_mask.png-7380e984228b6d3c7146d7dc9e6d4caa.ctex"
+
+[sub_resource type="Resource" id="Resource_spabv"]
+script = ExtResource("2_qgp7e")
+scene_value = 0.2
+texture = SubResource("CompressedTexture2D_arywy")
+metadata/_custom_type_script = "uid://cbapvmrcdtony"
+
+[sub_resource type="Resource" id="Resource_h6yxe"]
+script = ExtResource("2_qgp7e")
+scene_value = 0.2
+texture = ExtResource("3_quioh")
+metadata/_custom_type_script = "uid://cbapvmrcdtony"
+
+[sub_resource type="GDScript" id="GDScript_sra25"]
+script/source = "extends Node2D
+
+func _ready() -> void:
+	PATHS.mask_slot = self
+"
+
+[node name="TestScene" type="Control" unique_id=621119972]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FirstRoom" parent="." unique_id=1064111797 instance=ExtResource("1_w1gud")]
+layout_mode = 1
+scene_set = Array[ExtResource("2_qgp7e")]([SubResource("Resource_4cspf"), SubResource("Resource_spabv"), SubResource("Resource_h6yxe")])
+
+[node name="Inventory" type="VSplitContainer" parent="." unique_id=581429075]
+custom_minimum_size = Vector2(1366, 768)
+layout_mode = 0
+offset_right = 1366.0
+offset_bottom = 768.0
+
+[node name="MaskInventory" parent="Inventory" unique_id=1560759894 groups=["mask_inventory"] instance=ExtResource("2_sra25")]
+layout_mode = 2
+
+[node name="Player" parent="." unique_id=624387848 instance=ExtResource("3_sra25")]
+position = Vector2(195, 427)
+
+[node name="MaskSlot" type="Node2D" parent="Player" unique_id=330185453]
+position = Vector2(10, -150)
+scale = Vector2(0.16, 0.16)
+script = SubResource("GDScript_sra25")
+
+[node name="MaskSprite" type="Sprite2D" parent="Player/MaskSlot" unique_id=970320329]

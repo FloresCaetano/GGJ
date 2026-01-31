@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://8tt6f0nvl1yj"]
+
+[ext_resource type="PackedScene" uid="uid://fav75tua3y7t" path="res://mask_system/scenes/mask.tscn" id="1_3qkva"]
+[ext_resource type="Script" uid="uid://dcqxyrfyyot1n" path="res://mask_system/scripts/mask_inventory.gd" id="1_6f68y"]
+
+[node name="MaskInventory" type="Control" unique_id=1560759894 node_paths=PackedStringArray("mask_container")]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6f68y")
+mask_container = NodePath("CenterContainer/MaskContainer")
+
+[node name="BG" type="ColorRect" parent="." unique_id=789765428]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.20392157)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=372635818]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MaskContainer" type="GridContainer" parent="CenterContainer" unique_id=1426885558]
+layout_direction = 2
+layout_mode = 2
+columns = 10
+
+[node name="Mask" parent="CenterContainer/MaskContainer" unique_id=37918954 instance=ExtResource("1_3qkva")]
+layout_mode = 2
+
+[node name="Mask2" parent="CenterContainer/MaskContainer" unique_id=482078539 instance=ExtResource("1_3qkva")]
+layout_mode = 2
+
+[node name="Mask3" parent="CenterContainer/MaskContainer" unique_id=1039265414 instance=ExtResource("1_3qkva")]
+layout_mode = 2

@@ -13,12 +13,14 @@ metadata/_custom_type_script = "uid://cbapvmrcdtony"
 
 [sub_resource type="Resource" id="Resource_f4j18"]
 script = ExtResource("2_2ghsh")
+index = 1
 scene_value = 0.2
 texture = ExtResource("3_bebti")
 metadata/_custom_type_script = "uid://cbapvmrcdtony"
 
 [sub_resource type="Resource" id="Resource_jfqkj"]
 script = ExtResource("2_2ghsh")
+index = 2
 player_value = 0.2
 scene_value = 0.2
 texture = ExtResource("3_bebti")

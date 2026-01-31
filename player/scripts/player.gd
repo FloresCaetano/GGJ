@@ -1,19 +1,26 @@
+class_name Player
 extends CharacterBody2D
 
-@export var mask_sprite: Sprite2D
+@export var mask_slot: Node2D
 
 @export var left_input: String = "ui_left"
 @export var right_input: String = "ui_right"
 @export var up_input: String = "ui_up"
 @export var down_input: String = "ui_down"
 
+
+
 @export var interaction_input: String = "ui_accept"
 
 @onready var interactor: Interactor = $Interactor
 
 @export var speed: float = 10000
-func set_mask(new_mask: MaskItem):
-	mask_sprite.texture = new_mask.texture
+
+func _ready() -> void:
+	PATHS.player = self
+
+func set_mask(new_mask: Mask):
+	mask_slot.add_child(new_mask.duplicate())
 
 func _physics_process(_delta: float) -> void:
 	velocity = _move_character(Input.get_vector(left_input, right_input, up_input, down_input), velocity)

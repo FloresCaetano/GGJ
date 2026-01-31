@@ -6,6 +6,23 @@ var masks : Array[Mask] = []
 
 var active_mask : Mask
 
+func _ready() -> void:
+	PATHS.mask_inventory = self
+
+func mask_select_animation(mask : Mask):
+	close()
+	var placeholder : Mask = mask.duplicate()
+	placeholder.set_script(null)
+	get_tree().current_scene.add_child(placeholder)
+	placeholder.pivot_offset = Vector2.ZERO
+	var tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_property(placeholder, "global_position", PATHS.mask_slot.global_position, 1.0)
+	var tween2 = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween2.tween_property(placeholder, "scale", Vector2(0.4, 0.4), 1.0)
+	await tween.finished
+	PATHS.player.set_mask(placeholder)
+	placeholder.queue_free()
+
 func reload_masks(scene_set : Array[MaskItem]):
 	if mask_container.get_child_count() > 0:
 		for mask in mask_container.get_children():

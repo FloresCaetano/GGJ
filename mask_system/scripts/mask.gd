@@ -19,10 +19,15 @@ var original_position : Vector2
 var is_on_drop_area : bool = false
 
 var tween : Tween
-	
+
+signal mask_selected
+
+func _ready() -> void:
+	mask_selected.connect(GAMEMANAGER._on_mask_selected)
 
 func load_image():
 	texture_rect.texture = mask_item.texture
+
 
 func _on_gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("left_click"):
@@ -33,10 +38,13 @@ func _on_gui_input(event: InputEvent) -> void:
 			background.material.set_shader_parameter("hue", GAMEMANAGER.current_background_hue)
 		player.material.set_shader_parameter("hue", GAMEMANAGER.current_player_hue)
 		
-		$"../../../BG".visible = false
-		tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-		tween.tween_property(self, "global_position", PATHS.mask_slot.global_position, 1.0)
-		await tween.finished
+		mask_selected.emit(mask_item)
+		
+		mask_inventory.mask_select_animation(self)
+		queue_free()
+		
+		
+		
 		
 
 func _on_mouse_entered() -> void:
@@ -46,6 +54,5 @@ func _on_mouse_entered() -> void:
 
 
 func _on_mouse_exited() -> void:
-	if tween: tween.stop()
 	tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	tween.tween_property(self, "scale", Vector2.ONE, 0.5)

@@ -2,7 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://cqtkwmf3y0uao" path="res://player/assets/player.png" id="1_apn28"]
 [ext_resource type="Script" uid="uid://u3v3m82hggc5" path="res://player/scripts/player.gd" id="1_t0cpu"]
-[ext_resource type="Script" uid="uid://cn3plmj447bsq" path="res://player/scripts/interactor.gd" id="3_8h4do"]
+[ext_resource type="PackedScene" uid="uid://fav75tua3y7t" path="res://mask_system/scenes/mask.tscn" id="3_8h4do"]
+[ext_resource type="Script" path="res://player/scripts/interactor.gd" id="4_rclgo"]
 
 [sub_resource type="Shader" id="Shader_c7tem"]
 code = "shader_type canvas_item;
@@ -38,7 +39,14 @@ animations = [{
 radius = 15.0
 height = 66.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t0cpu"]
+[sub_resource type="GDScript" id="GDScript_t0cpu"]
+script/source = "extends Node2D
+
+func _ready() -> void:
+	PATHS.mask_slot = self
+"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_87uja"]
 radius = 11.013647
 height = 29.50029
 
@@ -56,13 +64,27 @@ position = Vector2(23, 271)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_8h4do")
 
-[node name="Interactor" type="Area2D" parent="." unique_id=1243405759]
+[node name="MaskSlot" type="Node2D" parent="." unique_id=1990663692]
+position = Vector2(-31, -189)
+script = SubResource("GDScript_t0cpu")
+
+[node name="Mask" parent="MaskSlot" unique_id=37918954 instance=ExtResource("3_8h4do")]
+visible = false
+custom_minimum_size = Vector2(60, 60)
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 200.0
+offset_bottom = 200.0
+scale = Vector2(0.4, 0.4)
+pivot_offset = Vector2(0, 0)
+
+[node name="Interactor" type="Area2D" parent="." unique_id=961792964]
 position = Vector2(64, 274)
 scale = Vector2(2.9926813, 2.983022)
 collision_layer = 256
 collision_mask = 256
-script = ExtResource("3_8h4do")
+script = ExtResource("4_rclgo")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactor" unique_id=1436496492]
-shape = SubResource("CapsuleShape2D_t0cpu")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactor" unique_id=1987813477]
+shape = SubResource("CapsuleShape2D_87uja")
 debug_color = Color(0.8424195, 0.38068107, 0.058888905, 0.41960785)

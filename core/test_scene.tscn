@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://is8sctqx0pne"]
+[gd_scene format=3 uid="uid://cx5t16wi516tf"]
 
 [ext_resource type="Script" uid="uid://dnxgmbcpeov8m" path="res://core/scripts/game_master.gd" id="1_spabv"]
 [ext_resource type="PackedScene" uid="uid://cxm7kv3vrpkj6" path="res://rooms/scenes/first_room.tscn" id="1_w1gud"]
@@ -85,6 +85,7 @@ offset_right = 1366.0
 offset_bottom = 768.0
 
 [node name="MaskInventory" parent="Inventory" unique_id=1560759894 groups=["mask_inventory"] instance=ExtResource("2_sra25")]
+visible = false
 layout_mode = 2
 
 [node name="MainScreen" parent="." unique_id=296631412 instance=ExtResource("7_4cspf")]

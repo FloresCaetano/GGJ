@@ -7,12 +7,17 @@ extends CharacterBody2D
 @export var up_input: String = "ui_up"
 @export var down_input: String = "ui_down"
 
+@export var interaction_input: String = "ui_accept"
+
+@onready var interactor: Interactor = $Interactor
+
 @export var speed: float = 10000
 func set_mask(new_mask: MaskItem):
 	mask_sprite.texture = new_mask.texture
 
 func _physics_process(_delta: float) -> void:
 	velocity = _move_character(Input.get_vector(left_input, right_input, up_input, down_input), velocity)
+	interactor.interact(Input.is_action_just_pressed(interaction_input))
 	move_and_slide()
 
 func _move_character(input: Vector2, current_velocity: Vector2) -> Vector2:

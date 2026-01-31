@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://8tt6f0nvl1yj" path="res://mask_system/scenes/mask_inventory.tscn" id="2_sra25"]
 [ext_resource type="Texture2D" uid="uid://chsnu1e8yrsls" path="res://mask_system/assets/test_mask.png" id="3_quioh"]
 [ext_resource type="PackedScene" uid="uid://dy31n8sdptxwi" path="res://player/scenes/player.tscn" id="3_sra25"]
+[ext_resource type="Texture2D" uid="uid://cqtkwmf3y0uao" path="res://player/assets/player.png" id="6_quioh"]
 
 [sub_resource type="Resource" id="Resource_4cspf"]
 script = ExtResource("2_qgp7e")
@@ -33,6 +34,14 @@ script/source = "extends Node2D
 func _ready() -> void:
 	PATHS.mask_slot = self
 "
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4cspf"]
+radius = 50.178467
+height = 184.91211
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_quioh"]
+radius = 21.19043
+height = 64.789734
 
 [node name="TestScene" type="Control" unique_id=621119972]
 layout_mode = 3
@@ -65,3 +74,28 @@ offset_bottom = 768.0
 
 [node name="MaskInventory" parent="Inventory" unique_id=1560759894 groups=["mask_inventory"] instance=ExtResource("2_sra25")]
 layout_mode = 2
+
+[node name="DummySecondary" type="Sprite2D" parent="." unique_id=25199144]
+position = Vector2(380, 453)
+scale = Vector2(0.33114445, 0.33114445)
+texture = ExtResource("6_quioh")
+flip_h = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="DummySecondary" unique_id=1631902433]
+position = Vector2(-96.63457, 440.8952)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DummySecondary/StaticBody2D" unique_id=2050660842]
+position = Vector2(42.277588, 238.56668)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_4cspf")
+
+[node name="Interactor" type="StaticBody2D" parent="DummySecondary" unique_id=174689121 groups=["interactable"]]
+position = Vector2(-117.77356, 685.50146)
+scale = Vector2(2.9926813, 2.983022)
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DummySecondary/Interactor" unique_id=1720682988]
+position = Vector2(2.0181437, -2.0246785)
+shape = SubResource("CapsuleShape2D_quioh")
+debug_color = Color(0.8424195, 0.38068107, 0.058888905, 0.41960785)

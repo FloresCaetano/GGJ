@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cs7hg3m3bvpao"]
+
+[ext_resource type="Texture2D" uid="uid://boifnkkf3m8s7" path="res://dialog_system/assets/dialogo.png" id="1_6fbbg"]
+
+[node name="DialogSystem" type="Control" unique_id=1885279917]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1086893697]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer" unique_id=417906075]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/CenterContainer" unique_id=50041222]
+layout_mode = 2
+theme_override_constants/margin_bottom = 80
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/CenterContainer/MarginContainer" unique_id=1773646338]
+layout_mode = 2
+texture = ExtResource("1_6fbbg")

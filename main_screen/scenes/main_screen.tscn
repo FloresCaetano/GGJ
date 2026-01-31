@@ -7,10 +7,13 @@
 shader = ExtResource("2_rb0mj")
 shader_parameter/amount = 3.0000001425
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rb0mj"]
+
 [sub_resource type="LabelSettings" id="LabelSettings_ltw2h"]
 font_size = 75
 
 [node name="MainScreen" type="Control" unique_id=296631412]
+process_mode = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -37,6 +40,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_rb0mj")
 
 [node name="Container" type="MarginContainer" parent="Panel" unique_id=1903876360]
 layout_mode = 1

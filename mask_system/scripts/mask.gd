@@ -19,10 +19,15 @@ var original_position : Vector2
 var is_on_drop_area : bool = false
 
 var tween : Tween
-	
+
+signal mask_selected
+
+func _ready() -> void:
+	mask_selected.connect(GAMEMANAGER._on_mask_selected)
 
 func load_image():
 	texture_rect.texture = mask_item.texture
+
 
 func _on_gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("left_click"):
@@ -32,6 +37,8 @@ func _on_gui_input(event: InputEvent) -> void:
 		for background in backgrounds:
 			background.material.set_shader_parameter("hue", GAMEMANAGER.current_background_hue)
 		player.material.set_shader_parameter("hue", GAMEMANAGER.current_player_hue)
+		
+		mask_selected.emit(mask_item)
 		
 		mask_inventory.mask_select_animation(self)
 		queue_free()

@@ -1,14 +1,50 @@
 [gd_scene format=3 uid="uid://cs7hg3m3bvpao"]
 
 [ext_resource type="Texture2D" uid="uid://boifnkkf3m8s7" path="res://dialog_system/assets/dialogo.png" id="1_6fbbg"]
+[ext_resource type="Script" uid="uid://c8sokf04vfota" path="res://dialog_system/scripts/dialog_system.gd" id="1_y0c5y"]
+[ext_resource type="Script" uid="uid://brmiww0ppkct5" path="res://dialog_system/resources/res_dialog_data.gd" id="2_1jkri"]
+[ext_resource type="FontFile" uid="uid://pbp6l3vlmc73" path="res://shared/Fonts/Baskervville-VariableFont_wght.ttf" id="2_3wh0d"]
 
-[node name="DialogSystem" type="Control" unique_id=1885279917]
+[sub_resource type="Resource" id="Resource_0xsxe"]
+script = ExtResource("2_1jkri")
+character = "Player"
+dialog = "Hola como estas?"
+trigger_mask_selection = true
+metadata/_custom_type_script = "uid://brmiww0ppkct5"
+
+[sub_resource type="Resource" id="Resource_au47l"]
+script = ExtResource("2_1jkri")
+mask_selected = 0
+character = "Player2"
+dialog = "Bien y tu?"
+metadata/_custom_type_script = "uid://brmiww0ppkct5"
+
+[sub_resource type="Resource" id="Resource_1jkri"]
+script = ExtResource("2_1jkri")
+mask_selected = 1
+character = "Player2"
+dialog = "Mas o menos y tu?"
+metadata/_custom_type_script = "uid://brmiww0ppkct5"
+
+[sub_resource type="Resource" id="Resource_sl4ek"]
+script = ExtResource("2_1jkri")
+mask_selected = 2
+character = "Player2"
+dialog = "Mal y tu?"
+metadata/_custom_type_script = "uid://brmiww0ppkct5"
+
+[node name="DialogSystem" type="Control" unique_id=1885279917 node_paths=PackedStringArray("l_dialog", "l_name")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_y0c5y")
+l_dialog = NodePath("VBoxContainer/CenterContainer/MarginContainer/TextureRect/LDialog")
+l_name = NodePath("VBoxContainer/CenterContainer/MarginContainer/TextureRect/LName")
+dialogs = Array[ExtResource("2_1jkri")]([SubResource("Resource_0xsxe"), SubResource("Resource_au47l"), SubResource("Resource_1jkri"), SubResource("Resource_sl4ek")])
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1086893697]
 layout_mode = 1
@@ -17,6 +53,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 alignment = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="VBoxContainer" unique_id=417906075]
@@ -29,3 +66,32 @@ theme_override_constants/margin_bottom = 80
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/CenterContainer/MarginContainer" unique_id=1773646338]
 layout_mode = 2
 texture = ExtResource("1_6fbbg")
+
+[node name="LDialog" type="Label" parent="VBoxContainer/CenterContainer/MarginContainer/TextureRect" unique_id=968119591]
+custom_minimum_size = Vector2(943, 67)
+layout_mode = 0
+offset_left = 38.0
+offset_top = 65.0
+offset_right = 981.0
+offset_bottom = 132.0
+theme_override_colors/font_color = Color(0.040268797, 0.040268805, 0.040268797, 1)
+theme_override_fonts/font = ExtResource("2_3wh0d")
+theme_override_font_sizes/font_size = 24
+text = "Hola como estasHola como estasHola como estasHola como estasHola como estas Hola como estasHola como estasHola como estasHola como estas"
+autowrap_mode = 2
+text_overrun_behavior = 2
+
+[node name="LName" type="Label" parent="VBoxContainer/CenterContainer/MarginContainer/TextureRect" unique_id=1600595615]
+layout_mode = 0
+offset_left = 10.0
+offset_top = -4.0
+offset_right = 240.0
+offset_bottom = 63.0
+theme_override_colors/font_color = Color(0.90186185, 0.90186185, 0.90186185, 1)
+theme_override_fonts/font = ExtResource("2_3wh0d")
+theme_override_font_sizes/font_size = 24
+text = "RUPERTO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1574940300]

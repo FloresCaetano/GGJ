@@ -6,6 +6,9 @@ var masks : Array[Mask] = []
 
 var active_mask : Mask
 
+func _ready() -> void:
+	PATHS.mask_inventory = self
+
 func mask_select_animation(mask : Mask):
 	close()
 	var placeholder : Mask = mask.duplicate()

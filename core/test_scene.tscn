@@ -5,8 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://8tt6f0nvl1yj" path="res://mask_system/scenes/mask_inventory.tscn" id="2_sra25"]
 [ext_resource type="Texture2D" uid="uid://chsnu1e8yrsls" path="res://mask_system/assets/test_mask.png" id="3_quioh"]
 [ext_resource type="PackedScene" uid="uid://dy31n8sdptxwi" path="res://player/scenes/player.tscn" id="3_sra25"]
+[ext_resource type="PackedScene" uid="uid://cs7hg3m3bvpao" path="res://dialog_system/scenes/dialog_system.tscn" id="6_quioh"]
 
-[sub_resource type="Resource" id="Resource_4cspf"]
+[sub_resource type="Resource" id="Resource_quioh"]
 script = ExtResource("2_qgp7e")
 player_value = 0.2
 texture = ExtResource("3_quioh")
@@ -15,14 +16,16 @@ metadata/_custom_type_script = "uid://cbapvmrcdtony"
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_arywy"]
 load_path = "res://.godot/imported/test_mask.png-7380e984228b6d3c7146d7dc9e6d4caa.ctex"
 
-[sub_resource type="Resource" id="Resource_spabv"]
+[sub_resource type="Resource" id="Resource_4cspf"]
 script = ExtResource("2_qgp7e")
+index = 1
 scene_value = 0.2
 texture = SubResource("CompressedTexture2D_arywy")
 metadata/_custom_type_script = "uid://cbapvmrcdtony"
 
-[sub_resource type="Resource" id="Resource_h6yxe"]
+[sub_resource type="Resource" id="Resource_arywy"]
 script = ExtResource("2_qgp7e")
+index = 2
 scene_value = 0.2
 texture = ExtResource("3_quioh")
 metadata/_custom_type_script = "uid://cbapvmrcdtony"
@@ -37,7 +40,11 @@ grow_vertical = 2
 
 [node name="FirstRoom" parent="." unique_id=1064111797 instance=ExtResource("1_w1gud")]
 layout_mode = 1
-scene_set = Array[ExtResource("2_qgp7e")]([SubResource("Resource_4cspf"), SubResource("Resource_spabv"), SubResource("Resource_h6yxe")])
+scene_set = Array[ExtResource("2_qgp7e")]([SubResource("Resource_quioh"), SubResource("Resource_4cspf"), SubResource("Resource_arywy")])
+
+[node name="Player" parent="." unique_id=624387848 instance=ExtResource("3_sra25")]
+position = Vector2(195, 427)
+speed = 250.0
 
 [node name="Inventory" type="VSplitContainer" parent="." unique_id=581429075]
 custom_minimum_size = Vector2(1366, 768)
@@ -46,7 +53,8 @@ offset_right = 1366.0
 offset_bottom = 768.0
 
 [node name="MaskInventory" parent="Inventory" unique_id=1560759894 groups=["mask_inventory"] instance=ExtResource("2_sra25")]
+visible = false
 layout_mode = 2
 
-[node name="Player" parent="." unique_id=624387848 instance=ExtResource("3_sra25")]
-position = Vector2(195, 427)
+[node name="DialogSystem" parent="." unique_id=1885279917 instance=ExtResource("6_quioh")]
+layout_mode = 1

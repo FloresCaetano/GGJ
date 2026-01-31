@@ -20,7 +20,8 @@ func mask_select_animation(mask : Mask):
 	var tween2 = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	tween2.tween_property(placeholder, "scale", Vector2(0.4, 0.4), 1.0)
 	await tween.finished
-	
+	PATHS.player.set_mask(placeholder)
+	placeholder.queue_free()
 
 func reload_masks(scene_set : Array[MaskItem]):
 	if mask_container.get_child_count() > 0:

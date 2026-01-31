@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 GAMEMANAGER="*uid://bbvgrl6egjmlg"
 PATHS="*uid://cl6av4r42duvu"
 
+[display]
+
+window/size/viewport_width=1366
+window/size/viewport_height=768
+
 [file_customization]
 
 folder_colors={

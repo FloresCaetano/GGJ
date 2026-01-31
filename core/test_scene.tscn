@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://chsnu1e8yrsls" path="res://mask_system/assets/test_mask.png" id="3_quioh"]
 [ext_resource type="PackedScene" uid="uid://dy31n8sdptxwi" path="res://player/scenes/player.tscn" id="3_sra25"]
 [ext_resource type="Texture2D" uid="uid://cqtkwmf3y0uao" path="res://player/assets/player.png" id="6_quioh"]
+[ext_resource type="PackedScene" uid="uid://cs7hg3m3bvpao" path="res://dialog_system/scenes/dialog_system.tscn" id="7_4cspf"]
+[ext_resource type="Script" uid="uid://brmiww0ppkct5" path="res://dialog_system/resources/res_dialog_data.gd" id="8_arywy"]
 
 [sub_resource type="Resource" id="Resource_4cspf"]
 script = ExtResource("2_qgp7e")
@@ -35,6 +37,34 @@ height = 184.91211
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_quioh"]
 radius = 21.19043
 height = 64.789734
+
+[sub_resource type="Resource" id="Resource_h2oey"]
+script = ExtResource("8_arywy")
+character = "Player"
+dialog = "Hola como estas?"
+trigger_mask_selection = true
+metadata/_custom_type_script = "uid://brmiww0ppkct5"
+
+[sub_resource type="Resource" id="Resource_bkmrr"]
+script = ExtResource("8_arywy")
+mask_selected = 0
+character = "Player2"
+dialog = "Bien y tu?"
+metadata/_custom_type_script = "uid://brmiww0ppkct5"
+
+[sub_resource type="Resource" id="Resource_hkyx2"]
+script = ExtResource("8_arywy")
+mask_selected = 1
+character = "Player2"
+dialog = "Mas o menos y tu?"
+metadata/_custom_type_script = "uid://brmiww0ppkct5"
+
+[sub_resource type="Resource" id="Resource_grpj6"]
+script = ExtResource("8_arywy")
+mask_selected = 2
+character = "Player2"
+dialog = "Mal y tu?"
+metadata/_custom_type_script = "uid://brmiww0ppkct5"
 
 [node name="TestScene" type="Control" unique_id=621119972]
 layout_mode = 3
@@ -86,3 +116,7 @@ collision_mask = 256
 position = Vector2(2.0181437, -2.0246785)
 shape = SubResource("CapsuleShape2D_quioh")
 debug_color = Color(0.8424195, 0.38068107, 0.058888905, 0.41960785)
+
+[node name="DialogSystem" parent="." unique_id=1885279917 instance=ExtResource("7_4cspf")]
+layout_mode = 1
+dialogs = Array[ExtResource("8_arywy")]([SubResource("Resource_h2oey"), SubResource("Resource_bkmrr"), SubResource("Resource_hkyx2"), SubResource("Resource_grpj6")])

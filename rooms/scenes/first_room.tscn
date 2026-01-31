@@ -24,6 +24,33 @@ scene_value = 0.2
 texture = ExtResource("3_bebti")
 metadata/_custom_type_script = "uid://cbapvmrcdtony"
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sf0r0"]
+size = Vector2(1308.7501, 48.750008)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x602g"]
+size = Vector2(82, 84)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ghsh"]
+size = Vector2(589.5, 52)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_bebti"]
+a = Vector2(42, -22)
+b = Vector2(-62, 30)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_gx4rs"]
+a = Vector2(23, 11)
+b = Vector2(-48, 2)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sf0r0"]
+distance = -770.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_x602g"]
+normal = Vector2(0.99984616, -0.01754116)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2ghsh"]
+normal = Vector2(-1, 0)
+distance = -1365.2366
+
 [node name="FirstRoom" type="Control" unique_id=1064111797 node_paths=PackedStringArray("images")]
 layout_mode = 3
 anchors_preset = 15
@@ -42,3 +69,37 @@ scale = Vector2(0.4, 0.4)
 offset_right = 3413.0
 offset_bottom = 1920.0
 texture = ExtResource("1_2e2in")
+
+[node name="RoomColliders" type="Node" parent="." unique_id=1688740313]
+
+[node name="Area2D" type="Area2D" parent="RoomColliders" unique_id=843059451]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomColliders/Area2D" unique_id=458103321]
+position = Vector2(1105, 530)
+scale = Vector2(0.39999977, 0.39999977)
+shape = SubResource("RectangleShape2D_sf0r0")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="RoomColliders/Area2D" unique_id=411704451]
+position = Vector2(803, 558)
+shape = SubResource("RectangleShape2D_x602g")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="RoomColliders/Area2D" unique_id=1514584695]
+position = Vector2(469.75, 595)
+shape = SubResource("RectangleShape2D_2ghsh")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="RoomColliders/Area2D" unique_id=488110659]
+position = Vector2(133, 630)
+shape = SubResource("SegmentShape2D_bebti")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="RoomColliders/Area2D" unique_id=529382628]
+position = Vector2(49, 649)
+shape = SubResource("SegmentShape2D_gx4rs")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="RoomColliders/Area2D" unique_id=974033416]
+shape = SubResource("WorldBoundaryShape2D_sf0r0")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="RoomColliders/Area2D" unique_id=1315575482]
+shape = SubResource("WorldBoundaryShape2D_x602g")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="RoomColliders/Area2D" unique_id=1670390428]
+shape = SubResource("WorldBoundaryShape2D_2ghsh")

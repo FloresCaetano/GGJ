@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://wjup2mbm681b"]
+
+[ext_resource type="AudioStream" uid="uid://c2tygp7ddnlf6" path="res://main_screen/assets/main_screen_audio.mp3" id="1_vuhci"]
+
+[node name="MainScreenAudio" type="AudioStreamPlayer2D" unique_id=57198389]
+process_mode = 2
+stream = ExtResource("1_vuhci")
+volume_db = 20.0
+autoplay = true

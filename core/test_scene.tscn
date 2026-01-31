@@ -36,119 +36,119 @@ height = 256.3042
 
 [sub_resource type="Resource" id="Resource_h2oey"]
 script = ExtResource("8_arywy")
-character = "ni√±a"
-dialog = "Ya casi es hora. Vendr√°n a por m√≠ en poco tiempo."
+character = "niÒa"
+dialog = "Ya casi es hora. Vendr·n a por mÌ en poco tiempo."
 metadata/_custom_type_script = "uid://brmiww0ppkct5"
 
 [sub_resource type="Resource" id="Resource_bkmrr"]
 script = ExtResource("8_arywy")
-character = "Ni√±o"
-dialog = "‚Ä¶"
+character = "NiÒo"
+dialog = "Ö"
 metadata/_custom_type_script = "uid://brmiww0ppkct5"
 
 [sub_resource type="Resource" id="Resource_hkyx2"]
 script = ExtResource("8_arywy")
-character = "Ni√±a"
-dialog = "¬øNo vas a decirme nada? ¬øDespu√©s de todo este tiempo que estamos juntos?"
+character = "NiÒa"
+dialog = "øNo vas a decirme nada? øDespuÈs de todo este tiempo que estamos juntos?"
 trigger_mask_selection = true
 metadata/_custom_type_script = "uid://brmiww0ppkct5"
 
 [sub_resource type="Resource" id="Resource_grpj6"]
 script = ExtResource("8_arywy")
 mask_selected = 0
-character = "Ni√±o"
+character = "NiÒo"
 dialog = "Me alegro mucho por ti. Espero que tengas una buena vida."
 metadata/_custom_type_script = "uid://brmiww0ppkct5"
 
 [sub_resource type="Resource" id="Resource_arywy"]
 script = ExtResource("8_arywy")
 mask_selected = 0
-character = "Ni√±o"
+character = "NiÒo"
 dialog = "Solo quiero que seas feliz."
 metadata/_custom_type_script = "uid://brmiww0ppkct5"
 
 [sub_resource type="Resource" id="Resource_3stmn"]
 script = ExtResource("8_arywy")
 mask_selected = 0
-character = "Ni√±a"
-dialog = "Si me dices como te sientes, podr√≠a irme feliz."
+character = "NiÒa"
+dialog = "Si me dices como te sientes, podrÌa irme feliz."
 metadata/_custom_type_script = "uid://brmiww0ppkct5"
 
 [sub_resource type="Resource" id="Resource_lht1a"]
 script = ExtResource("8_arywy")
 mask_selected = 0
-character = "Ni√±o"
-dialog = "‚Ä¶"
+character = "NiÒo"
+dialog = "Ö"
 metadata/_custom_type_script = "uid://brmiww0ppkct5"
 
 [sub_resource type="Resource" id="Resource_2b0m6"]
 script = ExtResource("8_arywy")
 mask_selected = 0
-character = "Ni√±a"
+character = "NiÒa"
 dialog = "Eres un tonto."
 metadata/_custom_type_script = "uid://brmiww0ppkct5"
 
 [sub_resource type="Resource" id="Resource_bn8mt"]
 script = ExtResource("8_arywy")
 mask_selected = 1
-character = "Ni√±o"
-dialog = "Pero no quiero que te vayas. Me sentir√© muy solo sin ti. (Sollozo)"
+character = "NiÒo"
+dialog = "Pero no quiero que te vayas. Me sentirÈ muy solo sin ti. (Sollozo)"
 metadata/_custom_type_script = "uid://brmiww0ppkct5"
 
 [sub_resource type="Resource" id="Resource_t4oax"]
 script = ExtResource("8_arywy")
 mask_selected = 1
-character = "Ni√±a"
-dialog = "No llores. Siempre seremos amigos y vendr√© a visitarte. Te lo prometo."
+character = "NiÒa"
+dialog = "No llores. Siempre seremos amigos y vendrÈ a visitarte. Te lo prometo."
 metadata/_custom_type_script = "uid://brmiww0ppkct5"
 
 [sub_resource type="Resource" id="Resource_gqlf4"]
 script = ExtResource("8_arywy")
 mask_selected = 1
-character = "Ni√±o"
-dialog = "¬øLo har√°s?"
+character = "NiÒo"
+dialog = "øLo har·s?"
 metadata/_custom_type_script = "uid://brmiww0ppkct5"
 
 [sub_resource type="Resource" id="Resource_ox5e8"]
 script = ExtResource("8_arywy")
 mask_selected = 1
-character = "Ni√±o"
-dialog = "Sip, porque yo tambi√©n estar√© triste sin ti."
+character = "NiÒo"
+dialog = "Sip, porque yo tambiÈn estarÈ triste sin ti."
 metadata/_custom_type_script = "uid://brmiww0ppkct5"
 
 [sub_resource type="Resource" id="Resource_l67ft"]
 script = ExtResource("8_arywy")
 mask_selected = 1
-character = "Ni√±o"
+character = "NiÒo"
 dialog = "Entonces es una promesa."
 metadata/_custom_type_script = "uid://brmiww0ppkct5"
 
 [sub_resource type="Resource" id="Resource_1gm2q"]
 script = ExtResource("8_arywy")
 mask_selected = 1
-character = "Ni√±a"
+character = "NiÒa"
 dialog = "Si"
 metadata/_custom_type_script = "uid://brmiww0ppkct5"
 
 [sub_resource type="Resource" id="Resource_dxmcb"]
 script = ExtResource("8_arywy")
 mask_selected = 2
-character = "Ni√±o"
-dialog = "NO QUIERO VERTE! ¬°ANDATE CON TUS NUEVOS PAP√ÅS!"
+character = "NiÒo"
+dialog = "NO QUIERO VERTE! °ANDATE CON TUS NUEVOS PAP¡S!"
 metadata/_custom_type_script = "uid://brmiww0ppkct5"
 
 [sub_resource type="Resource" id="Resource_ruttl"]
 script = ExtResource("8_arywy")
 mask_selected = 2
-character = "Ni√±a"
+character = "NiÒa"
 dialog = "No tienes que ser tan cruel"
 metadata/_custom_type_script = "uid://brmiww0ppkct5"
 
 [sub_resource type="Resource" id="Resource_4s0px"]
 script = ExtResource("8_arywy")
 mask_selected = 2
-character = "Ni√±o"
-dialog = "¬°T√∫ eres cruel! Me dejas solo en este lugar. Solo y triste."
+character = "NiÒo"
+dialog = "°T˙ eres cruel! Me dejas solo en este lugar. Solo y triste."
 metadata/_custom_type_script = "uid://brmiww0ppkct5"
 
 [node name="TestScene" type="Control" unique_id=621119972]

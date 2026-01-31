@@ -3,38 +3,153 @@
 [ext_resource type="PackedScene" uid="uid://cxm7kv3vrpkj6" path="res://rooms/scenes/first_room.tscn" id="1_w1gud"]
 [ext_resource type="Script" uid="uid://cbapvmrcdtony" path="res://mask_system/resources/res_mask.gd" id="2_qgp7e"]
 [ext_resource type="PackedScene" uid="uid://8tt6f0nvl1yj" path="res://mask_system/scenes/mask_inventory.tscn" id="2_sra25"]
-[ext_resource type="Texture2D" uid="uid://chsnu1e8yrsls" path="res://mask_system/assets/test_mask.png" id="3_quioh"]
+[ext_resource type="Texture2D" uid="uid://bvdfj1h6nfpkv" path="res://mask_system/assets/mascara feliz.png" id="3_spabv"]
 [ext_resource type="PackedScene" uid="uid://dy31n8sdptxwi" path="res://player/scenes/player.tscn" id="3_sra25"]
-[ext_resource type="Texture2D" uid="uid://cqtkwmf3y0uao" path="res://player/assets/player.png" id="6_quioh"]
+[ext_resource type="Texture2D" uid="uid://215kvad25tgq" path="res://mask_system/assets/mascara triste.png" id="4_h6yxe"]
+[ext_resource type="Texture2D" uid="uid://bgs1wlqgumkqt" path="res://mask_system/assets/mascara enojo.png" id="5_h2oey"]
+[ext_resource type="PackedScene" uid="uid://cs7hg3m3bvpao" path="res://dialog_system/scenes/dialog_system.tscn" id="7_4cspf"]
+[ext_resource type="Script" uid="uid://brmiww0ppkct5" path="res://dialog_system/resources/res_dialog_data.gd" id="8_arywy"]
 
 [sub_resource type="Resource" id="Resource_4cspf"]
 script = ExtResource("2_qgp7e")
 player_value = 0.2
-texture = ExtResource("3_quioh")
+texture = ExtResource("3_spabv")
 metadata/_custom_type_script = "uid://cbapvmrcdtony"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_arywy"]
-load_path = "res://.godot/imported/test_mask.png-7380e984228b6d3c7146d7dc9e6d4caa.ctex"
 
 [sub_resource type="Resource" id="Resource_spabv"]
 script = ExtResource("2_qgp7e")
+index = 1
 scene_value = 0.2
-texture = SubResource("CompressedTexture2D_arywy")
+texture = ExtResource("4_h6yxe")
 metadata/_custom_type_script = "uid://cbapvmrcdtony"
 
 [sub_resource type="Resource" id="Resource_h6yxe"]
 script = ExtResource("2_qgp7e")
+index = 2
 scene_value = 0.2
-texture = ExtResource("3_quioh")
+texture = ExtResource("5_h2oey")
 metadata/_custom_type_script = "uid://cbapvmrcdtony"
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4cspf"]
-radius = 50.178467
-height = 184.91211
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_quioh"]
-radius = 21.19043
-height = 64.789734
+radius = 24.296143
+height = 256.3042
+
+[sub_resource type="Resource" id="Resource_h2oey"]
+script = ExtResource("8_arywy")
+character = "niña"
+dialog = "Ya casi es hora. Vendrán a por mí en poco tiempo."
+metadata/_custom_type_script = "uid://brmiww0ppkct5"
+
+[sub_resource type="Resource" id="Resource_bkmrr"]
+script = ExtResource("8_arywy")
+character = "Niño"
+dialog = "…"
+metadata/_custom_type_script = "uid://brmiww0ppkct5"
+
+[sub_resource type="Resource" id="Resource_hkyx2"]
+script = ExtResource("8_arywy")
+character = "Niña"
+dialog = "¿No vas a decirme nada? ¿Después de todo este tiempo que estamos juntos?"
+trigger_mask_selection = true
+metadata/_custom_type_script = "uid://brmiww0ppkct5"
+
+[sub_resource type="Resource" id="Resource_grpj6"]
+script = ExtResource("8_arywy")
+mask_selected = 0
+character = "Niño"
+dialog = "Me alegro mucho por ti. Espero que tengas una buena vida."
+metadata/_custom_type_script = "uid://brmiww0ppkct5"
+
+[sub_resource type="Resource" id="Resource_arywy"]
+script = ExtResource("8_arywy")
+mask_selected = 0
+character = "Niño"
+dialog = "Solo quiero que seas feliz."
+metadata/_custom_type_script = "uid://brmiww0ppkct5"
+
+[sub_resource type="Resource" id="Resource_3stmn"]
+script = ExtResource("8_arywy")
+mask_selected = 0
+character = "Niña"
+dialog = "Si me dices como te sientes, podría irme feliz."
+metadata/_custom_type_script = "uid://brmiww0ppkct5"
+
+[sub_resource type="Resource" id="Resource_lht1a"]
+script = ExtResource("8_arywy")
+mask_selected = 0
+character = "Niño"
+dialog = "…"
+metadata/_custom_type_script = "uid://brmiww0ppkct5"
+
+[sub_resource type="Resource" id="Resource_2b0m6"]
+script = ExtResource("8_arywy")
+mask_selected = 0
+character = "Niña"
+dialog = "Eres un tonto."
+metadata/_custom_type_script = "uid://brmiww0ppkct5"
+
+[sub_resource type="Resource" id="Resource_bn8mt"]
+script = ExtResource("8_arywy")
+mask_selected = 1
+character = "Niño"
+dialog = "Pero no quiero que te vayas. Me sentiré muy solo sin ti. (Sollozo)"
+metadata/_custom_type_script = "uid://brmiww0ppkct5"
+
+[sub_resource type="Resource" id="Resource_t4oax"]
+script = ExtResource("8_arywy")
+mask_selected = 1
+character = "Niña"
+dialog = "No llores. Siempre seremos amigos y vendré a visitarte. Te lo prometo."
+metadata/_custom_type_script = "uid://brmiww0ppkct5"
+
+[sub_resource type="Resource" id="Resource_gqlf4"]
+script = ExtResource("8_arywy")
+mask_selected = 1
+character = "Niño"
+dialog = "¿Lo harás?"
+metadata/_custom_type_script = "uid://brmiww0ppkct5"
+
+[sub_resource type="Resource" id="Resource_ox5e8"]
+script = ExtResource("8_arywy")
+mask_selected = 1
+character = "Niño"
+dialog = "Sip, porque yo también estaré triste sin ti."
+metadata/_custom_type_script = "uid://brmiww0ppkct5"
+
+[sub_resource type="Resource" id="Resource_l67ft"]
+script = ExtResource("8_arywy")
+mask_selected = 1
+character = "Niño"
+dialog = "Entonces es una promesa."
+metadata/_custom_type_script = "uid://brmiww0ppkct5"
+
+[sub_resource type="Resource" id="Resource_1gm2q"]
+script = ExtResource("8_arywy")
+mask_selected = 1
+character = "Niña"
+dialog = "Si"
+metadata/_custom_type_script = "uid://brmiww0ppkct5"
+
+[sub_resource type="Resource" id="Resource_dxmcb"]
+script = ExtResource("8_arywy")
+mask_selected = 2
+character = "Niño"
+dialog = "NO QUIERO VERTE! ¡ANDATE CON TUS NUEVOS PAPÁS!"
+metadata/_custom_type_script = "uid://brmiww0ppkct5"
+
+[sub_resource type="Resource" id="Resource_ruttl"]
+script = ExtResource("8_arywy")
+mask_selected = 2
+character = "Niña"
+dialog = "No tienes que ser tan cruel"
+metadata/_custom_type_script = "uid://brmiww0ppkct5"
+
+[sub_resource type="Resource" id="Resource_4s0px"]
+script = ExtResource("8_arywy")
+mask_selected = 2
+character = "Niño"
+dialog = "¡Tú eres cruel! Me dejas solo en este lugar. Solo y triste."
+metadata/_custom_type_script = "uid://brmiww0ppkct5"
 
 [node name="TestScene" type="Control" unique_id=621119972]
 layout_mode = 3
@@ -52,6 +167,9 @@ scene_set = Array[ExtResource("2_qgp7e")]([SubResource("Resource_4cspf"), SubRes
 position = Vector2(195, 427)
 speed = 250.0
 
+[node name="Interactor" parent="Player" index="3" unique_id=961792964 node_paths=PackedStringArray("dialog_system")]
+dialog_system = NodePath("../../DialogSystem")
+
 [node name="Inventory" type="VSplitContainer" parent="." unique_id=581429075]
 custom_minimum_size = Vector2(1366, 768)
 layout_mode = 0
@@ -62,27 +180,21 @@ offset_bottom = 768.0
 visible = false
 layout_mode = 2
 
-[node name="DummySecondary" type="Sprite2D" parent="." unique_id=25199144]
-position = Vector2(380, 453)
-scale = Vector2(0.33114445, 0.33114445)
-texture = ExtResource("6_quioh")
-flip_h = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="DummySecondary" unique_id=1631902433]
-position = Vector2(-96.63457, 440.8952)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DummySecondary/StaticBody2D" unique_id=2050660842]
-position = Vector2(42.277588, 238.56668)
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_4cspf")
-
-[node name="Interactor" type="StaticBody2D" parent="DummySecondary" unique_id=174689121 groups=["interactable"]]
-position = Vector2(-117.77356, 685.50146)
-scale = Vector2(2.9926813, 2.983022)
+[node name="Interactor" type="StaticBody2D" parent="Inventory" unique_id=174689121 groups=["interactable"]]
+position = Vector2(1060, 512)
+scale = Vector2(0.9910098, 0.98781115)
 collision_layer = 256
 collision_mask = 256
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DummySecondary/Interactor" unique_id=1720682988]
-position = Vector2(2.0181437, -2.0246785)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inventory/Interactor" unique_id=1720682988]
+position = Vector2(2.0181437, 26.32082)
+rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_quioh")
 debug_color = Color(0.8424195, 0.38068107, 0.058888905, 0.41960785)
+
+[node name="DialogSystem" parent="." unique_id=1885279917 instance=ExtResource("7_4cspf")]
+visible = false
+layout_mode = 1
+dialogs = Array[ExtResource("8_arywy")]([SubResource("Resource_h2oey"), SubResource("Resource_bkmrr"), SubResource("Resource_hkyx2"), SubResource("Resource_grpj6"), SubResource("Resource_arywy"), SubResource("Resource_3stmn"), SubResource("Resource_lht1a"), SubResource("Resource_2b0m6"), SubResource("Resource_bn8mt"), SubResource("Resource_t4oax"), SubResource("Resource_gqlf4"), SubResource("Resource_ox5e8"), SubResource("Resource_l67ft"), SubResource("Resource_1gm2q"), SubResource("Resource_dxmcb"), SubResource("Resource_ruttl"), SubResource("Resource_4s0px")])
+
+[editable path="Player"]

@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://dy31n8sdptxwi" path="res://player/scenes/player.tscn" id="3_sra25"]
 [ext_resource type="PackedScene" uid="uid://dj1f8fqjvow60" path="res://main_screen/scenes/main_screen.tscn" id="7_4cspf"]
 [ext_resource type="PackedScene" uid="uid://wjup2mbm681b" path="res://main_screen/scenes/main_screen_audio.tscn" id="8_arywy"]
-[ext_resource type="AudioStream" uid="uid://c2tygp7ddnlf6" path="res://main_screen/assets/main_screen_audio.mp3" id="10_h6yxe"]
 
 [sub_resource type="Resource" id="Resource_4cspf"]
 script = ExtResource("2_qgp7e")
@@ -51,6 +50,7 @@ grow_vertical = 2
 script = ExtResource("1_spabv")
 main_screen_scene = NodePath("MainScreen")
 main_screen_audio = NodePath("MainScreenAudio")
+start_paused = false
 
 [node name="FirstRoom" parent="." unique_id=1064111797 instance=ExtResource("1_w1gud")]
 layout_mode = 1
@@ -91,10 +91,6 @@ layout_mode = 2
 layout_mode = 1
 
 [node name="MainScreenAudio" parent="." unique_id=57198389 instance=ExtResource("8_arywy")]
-process_mode = 2
-stream = ExtResource("10_h6yxe")
-volume_db = 20.0
-autoplay = true
 parameters/looping = true
 
 [connection signal="on_game_start" from="MainScreen" to="." method="_on_main_screen_on_game_start"]

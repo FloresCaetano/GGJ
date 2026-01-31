@@ -2,9 +2,19 @@ extends Control
 
 class_name MainScreen
 
-@export var start_input: String = "ui_accept"
-@export var game_scene: PackedScene
+signal on_game_start
+signal on_credits_start
 
-func _unhandled_input(event: InputEvent) -> void:
-    if event.is_action_pressed(start_input):
-        get_tree().change_scene_to_packed(game_scene)
+@onready var blur_material: Material = $Blur.material
+
+func _on_start_pressed() -> void:
+    on_game_start.emit()
+
+func _on_credits_pressed() -> void:
+    on_credits_start.emit()
+
+func _on_exit_pressed() -> void:
+    get_tree().quit()
+
+func unblur() -> void:
+    blur_material.set_shader_parameter("amount", 0)

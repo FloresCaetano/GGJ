@@ -1,7 +1,11 @@
 [gd_scene format=3 uid="uid://dj1f8fqjvow60"]
 
 [ext_resource type="Script" uid="uid://kqlusuoawsud" path="res://main_screen/scripts/main_screen.gd" id="1_thusc"]
-[ext_resource type="PackedScene" uid="uid://is8sctqx0pne" path="res://core/test_scene.tscn" id="2_rb0mj"]
+[ext_resource type="Shader" uid="uid://c7ikyf3a1i7u" path="res://main_screen/assets/backdrop.gdshader" id="2_rb0mj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mvp8u"]
+shader = ExtResource("2_rb0mj")
+shader_parameter/amount = 3.0000001425
 
 [sub_resource type="LabelSettings" id="LabelSettings_ltw2h"]
 font_size = 75
@@ -14,7 +18,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_thusc")
-game_scene = ExtResource("2_rb0mj")
+
+[node name="Blur" type="ColorRect" parent="." unique_id=824264957]
+material = SubResource("ShaderMaterial_mvp8u")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Panel" type="Panel" parent="." unique_id=1148554208]
 layout_mode = 1
@@ -24,30 +38,59 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Container" type="MarginContainer" parent="." unique_id=1903876360]
+[node name="Container" type="MarginContainer" parent="Panel" unique_id=1903876360]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_top = 100
+theme_override_constants/margin_left = 75
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 75
 theme_override_constants/margin_bottom = 50
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Container" unique_id=1049966078]
+[node name="BoxContainer" type="HBoxContainer" parent="Panel/Container" unique_id=1671453948]
 layout_mode = 2
-theme_override_constants/separation = 40
+theme_override_constants/separation = 30
+alignment = 1
 
-[node name="Label" type="Label" parent="Container/VBoxContainer" unique_id=911612316]
+[node name="MarginContainer" type="MarginContainer" parent="Panel/Container/BoxContainer" unique_id=995517687]
 layout_mode = 2
-size_flags_vertical = 3
+theme_override_constants/margin_left = 75
+theme_override_constants/margin_right = 75
+
+[node name="Label" type="Label" parent="Panel/Container/BoxContainer/MarginContainer" unique_id=911612316]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
 text = "Placeholder name"
 label_settings = SubResource("LabelSettings_ltw2h")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="Container/VBoxContainer" unique_id=682148627]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/Container/BoxContainer" unique_id=1049966078]
 layout_mode = 2
-text = "Press ... to start"
-horizontal_alignment = 1
-vertical_alignment = 1
+size_flags_horizontal = 3
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Start" type="Button" parent="Panel/Container/BoxContainer/VBoxContainer" unique_id=931624848]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Start
+"
+
+[node name="Credits" type="Button" parent="Panel/Container/BoxContainer/VBoxContainer" unique_id=1446110195]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Credits"
+
+[node name="Exit" type="Button" parent="Panel/Container/BoxContainer/VBoxContainer" unique_id=1514888238]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Exit"
+
+[connection signal="pressed" from="Panel/Container/BoxContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Panel/Container/BoxContainer/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Panel/Container/BoxContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

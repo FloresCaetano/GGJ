@@ -171,23 +171,8 @@ grow_vertical = 2
 layout_mode = 1
 scene_set = Array[ExtResource("2_dev43")]([SubResource("Resource_4cspf"), SubResource("Resource_spabv"), SubResource("Resource_h6yxe")])
 
-<<<<<<< HEAD
-<<<<<<< HEAD:core/test_scene.tscn
-[node name="Player" parent="." unique_id=624387848 instance=ExtResource("3_sra25")]
-position = Vector2(349, 440)
-=======
 [node name="Player" parent="." unique_id=624387848 instance=ExtResource("6_7g0mn")]
 position = Vector2(1040, 305)
->>>>>>> release/state_machine:core/first_scene.tscn
-=======
-<<<<<<<< HEAD:core/test_scene.tscn
-[node name="Player" parent="." unique_id=624387848 instance=ExtResource("3_sra25")]
-position = Vector2(349, 440)
-========
-[node name="Player" parent="." unique_id=624387848 instance=ExtResource("6_7g0mn")]
-position = Vector2(1040, 305)
->>>>>>>> release/state_machine:core/first_scene.tscn
->>>>>>> release/state_machine
 speed = 250.0
 
 [node name="Interactor" parent="Player" index="3" unique_id=961792964]

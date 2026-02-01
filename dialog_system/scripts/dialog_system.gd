@@ -7,6 +7,9 @@ var tween : Tween
 var chars_per_second : int = 40
 var index : int = 0
 
+const interactor_layer : int = 0b100000000
+@onready var interactor : Interactor = get_tree().get_first_node_in_group("interactor")
+
 #FLAGS
 var force_skip_dialog : bool = false
 
@@ -19,6 +22,7 @@ func _ready() -> void:
 @export var dialogs : Array[DialogData]
 
 func start():
+	interactor.collision_mask = 0b00
 	visible = true
 	if index + 1 > dialogs.size():
 		end_dialog()
@@ -62,6 +66,8 @@ func write(visible_ratio):
 		$AudioStreamPlayer.play()
 
 func end_dialog():
+	GAMEMANAGER.selected_mask = null
+	interactor.collision_mask = interactor_layer
 	self.visible = false
 
 func _input(event: InputEvent) -> void:

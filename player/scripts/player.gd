@@ -43,8 +43,11 @@ func set_anim(input : Vector2):
 
 func _move_character(input: Vector2, current_velocity: Vector2) -> Vector2:
 	if input != Vector2.ZERO:
+		if not $AudioStreamPlayer2D.playing:
+			$AudioStreamPlayer2D.play()
 		set_anim(input)
 		return input * speed
 	else:
+		$AudioStreamPlayer2D.stop()
 		animated_sprite_2d.play("idle")
 		return Vector2(move_toward(current_velocity.x, 0, speed), move_toward(current_velocity.y, 0, speed))

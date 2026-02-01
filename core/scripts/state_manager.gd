@@ -18,6 +18,7 @@ func _process(delta: float) -> void:
 	if !is_transitioning && next_state == current_state:
 		states[current_state].update(delta)
 	elif !is_transitioning:
+		print(next_state)
 		_transition_to_state(next_state)
 
 func _transition_to_state(new_state: String) -> void:

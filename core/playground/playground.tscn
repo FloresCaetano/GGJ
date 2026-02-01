@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cyb1qd2q7m71q"]
 
-[ext_resource type="Script" uid="uid://4ni2mcn0rp6a" path="res://core/scripts/state_manager.gd" id="1_jyv4i"]
+[ext_resource type="Script" path="res://core/scripts/state_manager.gd" id="1_jyv4i"]
 [ext_resource type="Script" uid="uid://6teh2coj8oyo" path="res://core/playground/scripts/states/main_menu_state.gd" id="1_kb0p5"]
 [ext_resource type="Script" uid="uid://dmtus46hgla8h" path="res://core/playground/scripts/states/gameplay_state.gd" id="2_dop8w"]
 [ext_resource type="Script" uid="uid://7g4x0v0nm52x" path="res://core/playground/scripts/states/credits_state.gd" id="3_il2b1"]

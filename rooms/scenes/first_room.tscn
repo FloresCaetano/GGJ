@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://cxm7kv3vrpkj6"]
 
-[ext_resource type="Texture2D" uid="uid://b1bko6801j66w" path="res://rooms/assets/first_room/background.jpeg" id="1_2e2in"]
 [ext_resource type="Script" uid="uid://bqtf6ggfnsfe6" path="res://rooms/scripts/room_template.gd" id="1_x602g"]
 [ext_resource type="Script" uid="uid://cbapvmrcdtony" path="res://mask_system/resources/res_mask.gd" id="2_2ghsh"]
 [ext_resource type="Texture2D" uid="uid://chsnu1e8yrsls" path="res://mask_system/assets/test_mask.png" id="3_bebti"]
+[ext_resource type="Texture2D" uid="uid://udte0pgy0qr6" path="res://rooms/assets/first_room/Fondo_puesta cerrada.png" id="4_sf0r0"]
+[ext_resource type="Texture2D" uid="uid://cvcap6in2ng4t" path="res://rooms/assets/first_room/Fondo_puesta abierta.png" id="5_2ghsh"]
+[ext_resource type="Texture2D" uid="uid://ct2nwmvs8a1m" path="res://rooms/assets/first_room/niña.png" id="6_bebti"]
 
 [sub_resource type="Resource" id="Resource_gx4rs"]
 script = ExtResource("2_2ghsh")
@@ -25,6 +27,21 @@ player_value = 0.2
 scene_value = 0.2
 texture = ExtResource("3_bebti")
 metadata/_custom_type_script = "uid://cbapvmrcdtony"
+
+[sub_resource type="GDScript" id="GDScript_2ghsh"]
+script/source = "extends StaticBody2D
+
+func interact():
+	PATHS.dialog_system.start()
+"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2ghsh"]
+radius = 159.44348
+height = 660.94165
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bebti"]
+radius = 32.99994
+height = 94.00012
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sf0r0"]
 size = Vector2(1308.7501, 48.750008)
@@ -53,6 +70,139 @@ normal = Vector2(0.99984616, -0.01754116)
 normal = Vector2(-1, 0)
 distance = -1365.2366
 
+[sub_resource type="Animation" id="Animation_bebti"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Images/Layer1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Images/Layer2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Images/Layer3:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Images/Layer4/Niña/StaticBody2D:collision_layer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Images/Layer4/Niña/Interactor:collision_layer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_2ghsh"]
+resource_name = "girl_enters"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Images/Layer1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26666668),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Images/Layer2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.6333333, 0.93333316),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Images/Layer3:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.19, 1.5666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Images/Layer4/Niña/StaticBody2D:collision_layer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.61),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Images/Layer4/Niña/Interactor:collision_layer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.63),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 256]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bebti"]
+_data = {
+&"RESET": SubResource("Animation_bebti"),
+&"girl_enters": SubResource("Animation_2ghsh")
+}
+
 [node name="FirstRoom" type="Control" unique_id=1064111797 node_paths=PackedStringArray("images")]
 layout_mode = 3
 anchors_preset = 15
@@ -62,17 +212,71 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_x602g")
 scene_set = Array[ExtResource("2_2ghsh")]([SubResource("Resource_gx4rs"), SubResource("Resource_f4j18"), SubResource("Resource_jfqkj")])
-images = [NodePath("Images/Background")]
+images = [NodePath("Images/Layer1/TextureRect"), NodePath("Images/Layer2/TextureRect"), NodePath("Images/Layer4/TextureRect"), NodePath("Images/Layer4/Niña")]
 
 [node name="Images" type="Node2D" parent="." unique_id=858923626]
 scale = Vector2(0.4, 0.4)
 
-[node name="Background" type="TextureRect" parent="Images" unique_id=643164611 groups=["background"]]
+[node name="Layer4" type="Node2D" parent="Images" unique_id=52643955]
+
+[node name="TextureRect" type="TextureRect" parent="Images/Layer4" unique_id=2123211139]
 offset_right = 3413.0
 offset_bottom = 1920.0
-texture = ExtResource("1_2e2in")
+texture = ExtResource("4_sf0r0")
+
+[node name="Niña" type="TextureRect" parent="Images/Layer4" unique_id=2016631242]
+offset_left = 1792.4999
+offset_right = 2858.5
+offset_bottom = 1920.0
+texture = ExtResource("6_bebti")
+
+[node name="Interactor" type="StaticBody2D" parent="Images/Layer4/Niña" unique_id=737260023 groups=["interactable"]]
+position = Vector2(525, 1617.5)
+scale = Vector2(0.9910098, 0.98781115)
+collision_layer = 0
+collision_mask = 0
+script = SubResource("GDScript_2ghsh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Images/Layer4/Niña/Interactor" unique_id=111634739]
+position = Vector2(-2.5224948, 17.715876)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_2ghsh")
+debug_color = Color(0.8424195, 0.38068107, 0.058888905, 0.41960785)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Images/Layer4/Niña" unique_id=360406319]
+collision_layer = 0
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Images/Layer4/Niña/StaticBody2D" unique_id=1767975423]
+position = Vector2(505.00012, 1632.5)
+rotation = 1.5707964
+scale = Vector2(2.499999, 2.499999)
+shape = SubResource("CapsuleShape2D_bebti")
+
+[node name="Layer3" type="Node2D" parent="Images" unique_id=1698108057]
+
+[node name="TextureRect" type="TextureRect" parent="Images/Layer3" unique_id=677567315]
+offset_right = 3413.0
+offset_bottom = 1920.0
+texture = ExtResource("4_sf0r0")
+
+[node name="Layer2" type="Node2D" parent="Images" unique_id=239205692]
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="TextureRect" type="TextureRect" parent="Images/Layer2" unique_id=1250024970]
+offset_right = 3413.0
+offset_bottom = 1920.0
+texture = ExtResource("5_2ghsh")
+
+[node name="Layer1" type="Node2D" parent="Images" unique_id=1997209111]
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="TextureRect" type="TextureRect" parent="Images/Layer1" unique_id=1431109115]
+offset_right = 3413.0
+offset_bottom = 1920.0
+texture = ExtResource("4_sf0r0")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1784768570]
+position = Vector2(3, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=458103321]
 position = Vector2(1105, 530)
@@ -103,3 +307,6 @@ shape = SubResource("WorldBoundaryShape2D_x602g")
 
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D" unique_id=1670390428]
 shape = SubResource("WorldBoundaryShape2D_2ghsh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1165690533]
+libraries/ = SubResource("AnimationLibrary_bebti")

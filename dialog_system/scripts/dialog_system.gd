@@ -1,9 +1,10 @@
+class_name DialogSystem
 extends Control
 @export var l_dialog: Label
 @export var l_name: Label
 
 var tween : Tween
-var chars_per_second : int = 20
+var chars_per_second : int = 40
 var index : int = 0
 
 #FLAGS
@@ -13,11 +14,12 @@ signal skip_dialog
 
 
 func _ready() -> void:
-	start()
+	PATHS.dialog_system = self
 
 @export var dialogs : Array[DialogData]
 
 func start():
+	visible = true
 	if index + 1 > dialogs.size():
 		end_dialog()
 		return

@@ -9,7 +9,7 @@ var active_mask : Mask
 func _ready() -> void:
 	PATHS.mask_inventory = self
 
-func mask_select_animation(mask : Mask):
+func mask_select_animation(mask : Control):
 	close()
 	var placeholder : Mask = mask.duplicate()
 	placeholder.set_script(null)
@@ -20,7 +20,7 @@ func mask_select_animation(mask : Mask):
 	var tween2 = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	tween2.tween_property(placeholder, "scale", Vector2(0.4, 0.4), 1.0)
 	await tween.finished
-	PATHS.player.set_mask(placeholder)
+	PATHS.player.set_mask(placeholder.duplicate())
 	placeholder.queue_free()
 
 func reload_masks(scene_set : Array[MaskItem]):

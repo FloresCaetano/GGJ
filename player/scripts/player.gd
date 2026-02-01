@@ -16,11 +16,15 @@ extends CharacterBody2D
 
 @export var speed: float = 10000
 
+func activate():
+	pass
+
 func _ready() -> void:
 	PATHS.player = self
 
-func set_mask(new_mask: Mask):
-	mask_slot.add_child(new_mask.duplicate())
+func set_mask(new_mask):
+	new_mask.position = Vector2.ZERO
+	mask_slot.add_child(new_mask)
 
 func _physics_process(_delta: float) -> void:
 	velocity = _move_character(Input.get_vector(left_input, right_input, up_input, down_input), velocity)

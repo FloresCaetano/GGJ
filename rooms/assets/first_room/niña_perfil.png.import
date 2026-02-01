@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1bko6801j66w"
-path="res://.godot/imported/background.jpeg-0eebbc22c2d02c40554d48fb9c0c3d89.ctex"
+uid="uid://c60lrndlupye1"
+path="res://.godot/imported/niña_perfil.png-e7bc9270fb8874c29681d17946ed5942.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://rooms/assets/first_room/background.jpeg"
-dest_files=["res://.godot/imported/background.jpeg-0eebbc22c2d02c40554d48fb9c0c3d89.ctex"]
+source_file="res://rooms/assets/first_room/niña_perfil.png"
+dest_files=["res://.godot/imported/niña_perfil.png-e7bc9270fb8874c29681d17946ed5942.ctex"]
 
 [params]
 

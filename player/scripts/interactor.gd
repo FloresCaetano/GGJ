@@ -3,6 +3,8 @@ extends Area2D
 class_name Interactor
 
 @export var interaction_group: String = "interactable"
+@export var dialog_system: DialogSystem
+
 
 func _ready():
 	body_entered.connect(_on_body_entered)
@@ -20,4 +22,4 @@ func _on_body_exited(body) -> void:
 
 func interact(can_interact: bool) -> void:
 	if current_interactable and can_interact:
-		print("Hi! I'm interacting!")
+		current_interactable.interact()

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqtkwmf3y0uao"
-path="res://.godot/imported/player.png-5262c6d47c932fbaaca112fe33671111.ctex"
+uid="uid://dybgg4gb4s3gh"
+path="res://.godot/imported/niño.png-884fcf485290ffb54d784bcd500dc1fe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/assets/player.png"
-dest_files=["res://.godot/imported/player.png-5262c6d47c932fbaaca112fe33671111.ctex"]
+source_file="res://player/assets/niño.png"
+dest_files=["res://.godot/imported/niño.png-884fcf485290ffb54d784bcd500dc1fe.ctex"]
 
 [params]
 

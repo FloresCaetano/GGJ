@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://c0ryudb1iosj5" path="res://mask_system/scripts/mask.gd" id="1_ywb0q"]
 [ext_resource type="Texture2D" uid="uid://chsnu1e8yrsls" path="res://mask_system/assets/test_mask.png" id="2_ywb0q"]
+[ext_resource type="AudioStream" uid="uid://c43sowi52rysn" path="res://mask_system/assets/Switch_clicking.mp3" id="3_ck7gm"]
 
-[node name="Mask" type="Control" unique_id=37918954 node_paths=PackedStringArray("texture_rect")]
+[node name="Mask" type="Control" unique_id=37918954 node_paths=PackedStringArray("texture_rect", "audio_stream_player_2d")]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 3
 anchors_preset = 8
@@ -21,6 +22,7 @@ pivot_offset = Vector2(100, 100)
 mouse_filter = 1
 script = ExtResource("1_ywb0q")
 texture_rect = NodePath("TextureRect")
+audio_stream_player_2d = NodePath("AudioStreamPlayer2D")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=121083859]
 layout_mode = 1
@@ -31,6 +33,10 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_ywb0q")
 expand_mode = 2
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1811122637]
+position = Vector2(103, 103)
+stream = ExtResource("3_ck7gm")
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

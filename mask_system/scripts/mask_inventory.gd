@@ -34,10 +34,38 @@ func reload_masks(scene_set : Array[MaskItem]):
 		s_mask.mask_item = scene_set[i]
 		s_mask.mask_inventory = self
 		mask_container.add_child(s_mask)
+		s_mask.modulate.a = 0
 		s_mask.load_image()
 
 func open():
 	visible = true
+	
+	await get_tree().process_frame
+	await get_tree().process_frame
+	
+	var start_position = mask_container.global_position + (mask_container.size / 2)
+	start_position.y += 150
+	
+	var masks_node = mask_container.get_children()
+	
+	for mask in masks_node:
+		var target_pos = mask.global_position
+		var placeholder = mask.duplicate()
+		
+		get_tree().current_scene.add_child(placeholder)
+		
+		placeholder.global_position = start_position
+		placeholder.modulate.a = 1
+		placeholder.visible = true
+		
+		var tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		tween.tween_property(placeholder, "global_position", target_pos, 1.0)
+		
+		tween.finished.connect(func():
+			mask.modulate.a = 1
+			placeholder.queue_free()
+		)
+	
 
 func close():
 	visible = false

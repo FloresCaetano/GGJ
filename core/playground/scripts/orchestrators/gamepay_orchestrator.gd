@@ -7,9 +7,9 @@ class_name GameplayOrchestrator
 @onready var anim: AnimationPlayer = $AnimationPlayer
 
 func start_gameplay() -> void:
-    print(begin_animation)
-    anim.play(begin_animation)
-    pass
+	print(begin_animation)
+	anim.play(begin_animation)
+	pass
 
 func end_gameplay() -> void:
-    pass
+	pass

@@ -32,6 +32,11 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walking",
+"speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8h4do"]
@@ -49,15 +54,16 @@ func _ready() -> void:
 radius = 11.013647
 height = 29.50029
 
-[node name="Player" type="CharacterBody2D" unique_id=624387848 node_paths=PackedStringArray("mask_slot")]
+[node name="Player" type="CharacterBody2D" unique_id=624387848 node_paths=PackedStringArray("mask_slot", "animated_sprite_2d")]
 script = ExtResource("1_t0cpu")
 mask_slot = NodePath("MaskSlot")
+animated_sprite_2d = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2020603925 groups=["player"]]
 material = SubResource("ShaderMaterial_t0cpu")
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_t0cpu")
-animation = &"idle"
+animation = &"walking"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=73866431]
 position = Vector2(23, 271)

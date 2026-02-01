@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://fav75tua3y7t" path="res://mask_system/scenes/mask.tscn" id="1_3qkva"]
 [ext_resource type="Script" uid="uid://dcqxyrfyyot1n" path="res://mask_system/scripts/mask_inventory.gd" id="1_6f68y"]
 
-[node name="MaskInventory" type="Control" unique_id=1560759894 node_paths=PackedStringArray("mask_container")]
+[node name="MaskInventory" type="Control" unique_id=1560759894 node_paths=PackedStringArray("start_point", "mask_container")]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 3
 anchors_preset = 15
@@ -12,6 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6f68y")
+start_point = NodePath("StartPoint")
 mask_container = NodePath("CenterContainer/MaskContainer")
 
 [node name="BG" type="ColorRect" parent="." unique_id=789765428]
@@ -45,3 +46,6 @@ layout_mode = 2
 
 [node name="Mask3" parent="CenterContainer/MaskContainer" unique_id=1039265414 instance=ExtResource("1_3qkva")]
 layout_mode = 2
+
+[node name="StartPoint" type="Marker2D" parent="." unique_id=1898335728]
+position = Vector2(684, 580)

@@ -188,6 +188,7 @@ script = ExtResource("6_7stwk")
 [node name="Fade" parent="MainMenu" unique_id=702075131 instance=ExtResource("8_xmhwn")]
 
 [node name="MainScreenAudio" parent="MainMenu" unique_id=57198389 instance=ExtResource("7_7stwk")]
+position = Vector2(-1, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MainMenu" unique_id=1419521184]
 libraries/ = SubResource("AnimationLibrary_3l0tc")

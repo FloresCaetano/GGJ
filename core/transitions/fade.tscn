@@ -62,8 +62,6 @@ _data = {
 
 [node name="Fade" type="CanvasLayer" unique_id=702075131]
 script = ExtResource("1_hr8cw")
-fade_in_animation = "transition/fade_in"
-fade_out_animation = "transition/fade_out"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1291634171]
 modulate = Color(1, 1, 1, 0)

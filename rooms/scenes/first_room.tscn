@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://udte0pgy0qr6" path="res://rooms/assets/first_room/Fondo_puesta cerrada.png" id="4_sf0r0"]
 [ext_resource type="Texture2D" uid="uid://cvcap6in2ng4t" path="res://rooms/assets/first_room/Fondo_puesta abierta.png" id="5_2ghsh"]
 [ext_resource type="Texture2D" uid="uid://ct2nwmvs8a1m" path="res://rooms/assets/first_room/niña.png" id="6_bebti"]
+[ext_resource type="AudioStream" uid="uid://h2u0f22fsf2a" path="res://rooms/assets/first_room/door.mp3" id="7_bebti"]
 
 [sub_resource type="Resource" id="Resource_gx4rs"]
 script = ExtResource("2_2ghsh")
@@ -132,6 +133,18 @@ tracks/4/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_2ghsh"]
 resource_name = "girl_enters"
@@ -155,7 +168,7 @@ tracks/1/path = NodePath("Images/Layer2:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.6333333, 0.93333316),
+"times": PackedFloat32Array(1.41, 1.7099998),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -167,7 +180,7 @@ tracks/2/path = NodePath("Images/Layer3:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(1.19, 1.5666667),
+"times": PackedFloat32Array(1.9666667, 2.3433332),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -179,7 +192,7 @@ tracks/3/path = NodePath("Images/Layer4/Niña/StaticBody2D:collision_layer")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 1.61),
+"times": PackedFloat32Array(0, 2.3866668),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
@@ -191,10 +204,22 @@ tracks/4/path = NodePath("Images/Layer4/Niña/Interactor:collision_layer")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 1.63),
+"times": PackedFloat32Array(0, 2.4066668),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 256]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bebti"]
@@ -310,3 +335,7 @@ shape = SubResource("WorldBoundaryShape2D_2ghsh")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1165690533]
 libraries/ = SubResource("AnimationLibrary_bebti")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=922197845]
+position = Vector2(1066, 309)
+stream = ExtResource("7_bebti")

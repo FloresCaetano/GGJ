@@ -7,9 +7,9 @@ class_name GameplayOrchestrator
 @onready var anim: AnimationPlayer = $AnimationPlayer
 
 func start_gameplay() -> void:
-    visible = true
-    anim.play(begin_animation)
-    await anim.animation_finished
+	visible = true
+	anim.play(begin_animation)
+	await anim.animation_finished
 
 func end_gameplay() -> void:
-    visible = false
+	visible = false

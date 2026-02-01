@@ -1,6 +1,7 @@
 class_name MainMenuOrchestrator extends CanvasLayer
 
 @export var on_exit_animation: String = "main_menu/on_exit"
+@export var on_enter_animation: String = "main_menu/on_enter"
 
 @onready var anim: AnimationPlayer = $AnimationPlayer
 @onready var menu: MainScreen = $MainScreen
@@ -25,6 +26,10 @@ func _credit_start() -> void:
 
 func _exit_start() -> void:
 	on_button_clicked.emit(EVENT_EXIT)
+
+func open_menu() -> void:
+	anim.play(on_enter_animation)
+	await anim.animation_finished
 
 func close_menu() -> void:
 	anim.play(on_exit_animation)

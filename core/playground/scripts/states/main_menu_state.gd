@@ -26,7 +26,9 @@ func get_state() -> String:
 
 func enter_state() -> void:
 	main_menu.visible = true
-	fade.fade_in()
+	await fade.fade_in()
+	await main_menu.open_menu()
+	enter_finished.emit()
 
 func exit_state() -> void:
 	_next_transition = get_state()

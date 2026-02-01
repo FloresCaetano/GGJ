@@ -1,11 +1,7 @@
 [gd_scene format=3 uid="uid://dj1f8fqjvow60"]
 
 [ext_resource type="Script" uid="uid://kqlusuoawsud" path="res://main_screen/scripts/main_screen.gd" id="1_thusc"]
-[ext_resource type="Shader" uid="uid://c7ikyf3a1i7u" path="res://main_screen/assets/backdrop.gdshader" id="2_rb0mj"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_mvp8u"]
-shader = ExtResource("2_rb0mj")
-shader_parameter/amount = 3.0000001425
+[ext_resource type="FontFile" uid="uid://pbp6l3vlmc73" path="res://shared/Fonts/Baskervville-VariableFont_wght.ttf" id="2_rb0mj"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rb0mj"]
 
@@ -13,7 +9,6 @@ shader_parameter/amount = 3.0000001425
 font_size = 75
 
 [node name="MainScreen" type="Control" unique_id=296631412]
-process_mode = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,17 +16,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_thusc")
-
-[node name="Blur" type="ColorRect" parent="." unique_id=824264957]
-material = SubResource("ShaderMaterial_mvp8u")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -2.0
-offset_bottom = -2.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="Panel" type="Panel" parent="." unique_id=1148554208]
 layout_mode = 1
@@ -63,13 +47,15 @@ alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel/Container/BoxContainer" unique_id=995517687]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_constants/margin_left = 75
 theme_override_constants/margin_right = 75
 
-[node name="Label" type="Label" parent="Panel/Container/BoxContainer/MarginContainer" unique_id=911612316]
+[node name="Title" type="Label" parent="Panel/Container/BoxContainer/MarginContainer" unique_id=911612316]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_rb0mj")
 text = "Placeholder name"
 label_settings = SubResource("LabelSettings_ltw2h")
 horizontal_alignment = 1
@@ -83,19 +69,25 @@ alignment = 1
 
 [node name="Start" type="Button" parent="Panel/Container/BoxContainer/VBoxContainer" unique_id=931624848]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rb0mj")
 theme_override_font_sizes/font_size = 30
 text = "Start
 "
+flat = true
 
 [node name="Credits" type="Button" parent="Panel/Container/BoxContainer/VBoxContainer" unique_id=1446110195]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rb0mj")
 theme_override_font_sizes/font_size = 30
 text = "Credits"
+flat = true
 
 [node name="Exit" type="Button" parent="Panel/Container/BoxContainer/VBoxContainer" unique_id=1514888238]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rb0mj")
 theme_override_font_sizes/font_size = 30
 text = "Exit"
+flat = true
 
 [connection signal="pressed" from="Panel/Container/BoxContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Panel/Container/BoxContainer/VBoxContainer/Credits" to="." method="_on_credits_pressed"]

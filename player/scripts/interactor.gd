@@ -7,6 +7,7 @@ class_name Interactor
 
 
 func _ready():
+	PATHS.interactor = self
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
 

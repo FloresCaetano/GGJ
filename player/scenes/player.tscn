@@ -99,7 +99,7 @@ script = SubResource("GDScript_t0cpu")
 position = Vector2(64, 274)
 scale = Vector2(2.9926813, 2.983022)
 collision_layer = 256
-collision_mask = 256
+collision_mask = 0
 script = ExtResource("4_rclgo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactor" unique_id=1987813477]

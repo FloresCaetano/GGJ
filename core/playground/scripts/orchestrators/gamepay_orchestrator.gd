@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 class_name GameplayOrchestrator
 
@@ -7,9 +7,9 @@ class_name GameplayOrchestrator
 @onready var anim: AnimationPlayer = $AnimationPlayer
 
 func start_gameplay() -> void:
-    print(begin_animation)
+    visible = true
     anim.play(begin_animation)
-    pass
+    await anim.animation_finished
 
 func end_gameplay() -> void:
-    pass
+    visible = false

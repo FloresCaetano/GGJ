@@ -11,7 +11,48 @@
 [ext_resource type="PackedScene" uid="uid://da8tua68yn2j8" path="res://core/transitions/fade.tscn" id="8_xmhwn"]
 [ext_resource type="PackedScene" uid="uid://dxy0yplu6agqn" path="res://credits/scenes/credits.tscn" id="9_gvld1"]
 [ext_resource type="Script" uid="uid://bat1fil62dv6j" path="res://core/playground/scripts/orchestrators/gamepay_orchestrator.gd" id="10_3l0tc"]
-[ext_resource type="Texture2D" uid="uid://ct2nwmvs8a1m" path="res://rooms/assets/first_room/niña.png" id="11_phtaf"]
+[ext_resource type="PackedScene" uid="uid://c0cggo3kh26h4" path="res://core/first_scene.tscn" id="12_gvld1"]
+
+[sub_resource type="Animation" id="Animation_gvld1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Container:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bavgs"]
+_data = {
+&"RESET": SubResource("Animation_gvld1")
+}
+
+[sub_resource type="Animation" id="Animation_phtaf"]
+resource_name = "begin"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("Container:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gvld1"]
+_data = {
+&"begin": SubResource("Animation_phtaf")
+}
 
 [sub_resource type="Animation" id="Animation_3l0tc"]
 length = 0.001
@@ -37,7 +78,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [20.0]
+"values": [5.0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -94,7 +135,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0, 20.0]
+"values": [0.0, 5.0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -146,7 +187,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [20.0, 0.0]
+"values": [5.0, 0.0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -179,47 +220,6 @@ _data = {
 &"on_exit": SubResource("Animation_xmhwn")
 }
 
-[sub_resource type="Animation" id="Animation_gvld1"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Container:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_bavgs"]
-_data = {
-&"RESET": SubResource("Animation_gvld1")
-}
-
-[sub_resource type="Animation" id="Animation_phtaf"]
-resource_name = "begin"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = false
-tracks/0/path = NodePath("Container:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_gvld1"]
-_data = {
-&"begin": SubResource("Animation_phtaf")
-}
-
 [node name="Playground" type="Node2D" unique_id=1428515191]
 
 [node name="SceneStateMachine" type="Node" parent="." unique_id=1534501946]
@@ -244,18 +244,6 @@ fade = NodePath("../../Fade")
 [node name="Exit" type="Node" parent="SceneStateMachine" unique_id=180176799]
 script = ExtResource("4_il2b1")
 
-[node name="MainMenu" type="CanvasLayer" parent="." unique_id=143577678]
-script = ExtResource("6_7stwk")
-
-[node name="MainScreen" parent="MainMenu" unique_id=296631412 instance=ExtResource("6_c2qv1")]
-
-[node name="MainScreenAudio" parent="MainMenu" unique_id=57198389 instance=ExtResource("7_7stwk")]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="MainMenu" unique_id=1419521184]
-libraries/ = SubResource("AnimationLibrary_3l0tc")
-libraries/main_menu = SubResource("AnimationLibrary_phtaf")
-autoplay = &"RESET"
-
 [node name="Credits" type="CanvasLayer" parent="." unique_id=1930784750]
 visible = false
 
@@ -263,17 +251,29 @@ visible = false
 
 [node name="Timer" type="Timer" parent="Credits" unique_id=316313973]
 
-[node name="Fade" parent="." unique_id=702075131 instance=ExtResource("8_xmhwn")]
-
 [node name="Gamepay" type="Node2D" parent="." unique_id=1420662411]
 visible = false
 script = ExtResource("10_3l0tc")
 
-[node name="Container" type="Node2D" parent="Gamepay" unique_id=253654120]
+[node name="Container" type="CanvasLayer" parent="Gamepay" unique_id=860254503]
 
-[node name="Sprite2D" type="Sprite2D" parent="Gamepay/Container" unique_id=1398462744]
-texture = ExtResource("11_phtaf")
+[node name="FirstScene" parent="Gamepay/Container" unique_id=621119972 instance=ExtResource("12_gvld1")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Gamepay" unique_id=81542710]
 libraries/ = SubResource("AnimationLibrary_bavgs")
 libraries/gameplay_manager = SubResource("AnimationLibrary_gvld1")
+
+[node name="MainMenu" type="CanvasLayer" parent="." unique_id=143577678]
+script = ExtResource("6_7stwk")
+
+[node name="MainScreen" parent="MainMenu" unique_id=296631412 instance=ExtResource("6_c2qv1")]
+
+[node name="MainScreenAudio" parent="MainMenu" unique_id=57198389 instance=ExtResource("7_7stwk")]
+volume_db = 5.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MainMenu" unique_id=1419521184]
+libraries/ = SubResource("AnimationLibrary_3l0tc")
+libraries/main_menu = SubResource("AnimationLibrary_phtaf")
+autoplay = &"RESET"
+
+[node name="Fade" parent="." unique_id=702075131 instance=ExtResource("8_xmhwn")]

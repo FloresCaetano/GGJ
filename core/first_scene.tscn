@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cx5t16wi516tf"]
+[gd_scene format=3 uid="uid://c0cggo3kh26h4"]
 
 [ext_resource type="PackedScene" uid="uid://cxm7kv3vrpkj6" path="res://rooms/scenes/first_room.tscn" id="1_gc384"]
 [ext_resource type="Script" uid="uid://cbapvmrcdtony" path="res://mask_system/resources/res_mask.gd" id="2_dev43"]
@@ -159,7 +159,7 @@ func interact():
 radius = 24.296143
 height = 256.3042
 
-[node name="FirstScene" type="Control" unique_id=621119972]
+[node name="FirstScene" type="Control" unique_id=621119972 groups=["room_parent"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -208,7 +208,6 @@ debug_color = Color(0.8424195, 0.38068107, 0.058888905, 0.41960785)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1828164605]
 stream = ExtResource("10_dev43")
-volume_db = -30.0
 autoplay = true
 parameters/looping = true
 

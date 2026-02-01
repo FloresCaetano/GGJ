@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cx5t16wi516tf"]
 
 [ext_resource type="PackedScene" uid="uid://cxm7kv3vrpkj6" path="res://rooms/scenes/first_room.tscn" id="1_gc384"]
+[ext_resource type="Script" path="res://rooms/scripts/first_scene.gd" id="1_kt74o"]
 [ext_resource type="Script" uid="uid://cbapvmrcdtony" path="res://mask_system/resources/res_mask.gd" id="2_dev43"]
 [ext_resource type="Texture2D" uid="uid://bvdfj1h6nfpkv" path="res://mask_system/assets/mascara feliz.png" id="3_kt74o"]
 [ext_resource type="Texture2D" uid="uid://215kvad25tgq" path="res://mask_system/assets/mascara triste.png" id="4_0scjh"]
@@ -166,6 +167,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_kt74o")
 
 [node name="FirstRoom" parent="." unique_id=1064111797 instance=ExtResource("1_gc384")]
 layout_mode = 1
@@ -176,6 +178,7 @@ position = Vector2(1040, 305)
 speed = 250.0
 
 [node name="Interactor" parent="Player" index="3" unique_id=961792964]
+collision_mask = 256
 interaction_group = null
 
 [node name="Inventory" type="VSplitContainer" parent="." unique_id=581429075]

@@ -17,7 +17,7 @@ extends CharacterBody2D
 
 @export var speed: float = 10000
 
-var can_move : bool = false
+var can_move: bool = false
 
 func _ready() -> void:
 	PATHS.player = self
@@ -28,12 +28,12 @@ func set_mask(new_mask):
 
 
 func _physics_process(_delta: float) -> void:
+	if !can_move: return
 	velocity = _move_character(Input.get_vector(left_input, right_input, up_input, down_input), velocity)
 	interactor.interact(Input.is_action_just_pressed(interaction_input))
-	if can_move:
-		move_and_slide()
+	move_and_slide()
 
-func set_anim(input : Vector2):
+func set_anim(input: Vector2):
 	animated_sprite_2d.play("walking")
 	if input.x > 0:
 		animated_sprite_2d.scale.x = 0.4

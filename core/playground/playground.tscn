@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://da8tua68yn2j8" path="res://core/transitions/fade.tscn" id="8_xmhwn"]
 [ext_resource type="PackedScene" uid="uid://dxy0yplu6agqn" path="res://credits/scenes/credits.tscn" id="9_gvld1"]
 [ext_resource type="Script" uid="uid://bat1fil62dv6j" path="res://core/playground/scripts/orchestrators/gamepay_orchestrator.gd" id="10_3l0tc"]
-[ext_resource type="PackedScene" uid="uid://c0cggo3kh26h4" path="res://core/first_scene.tscn" id="12_gvld1"]
+[ext_resource type="PackedScene" uid="uid://cx5t16wi516tf" path="res://core/first_scene.tscn" id="12_gvld1"]
 
 [sub_resource type="Animation" id="Animation_gvld1"]
 length = 0.001
@@ -251,9 +251,10 @@ visible = false
 
 [node name="Timer" type="Timer" parent="Credits" unique_id=316313973]
 
-[node name="Gamepay" type="Node2D" parent="." unique_id=1420662411]
+[node name="Gamepay" type="Node2D" parent="." unique_id=1420662411 node_paths=PackedStringArray("first_scene")]
 visible = false
 script = ExtResource("10_3l0tc")
+first_scene = NodePath("Container/FirstScene")
 
 [node name="Container" type="CanvasLayer" parent="Gamepay" unique_id=860254503]
 

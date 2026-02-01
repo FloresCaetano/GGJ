@@ -174,8 +174,8 @@ scene_set = Array[ExtResource("2_qgp7e")]([SubResource("Resource_4cspf"), SubRes
 position = Vector2(1040, 305)
 speed = 250.0
 
-[node name="Interactor" parent="Player" index="3" unique_id=961792964 node_paths=PackedStringArray("dialog_system")]
-dialog_system = NodePath("../../DialogSystem")
+[node name="Interactor" parent="Player" index="3" unique_id=961792964]
+interaction_group = null
 
 [node name="Inventory" type="VSplitContainer" parent="." unique_id=581429075]
 custom_minimum_size = Vector2(1366, 768)

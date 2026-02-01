@@ -1,0 +1,204 @@
+[gd_scene format=3 uid="uid://cyb1qd2q7m71q"]
+
+[ext_resource type="Script" uid="uid://4ni2mcn0rp6a" path="res://core/scripts/state_manager.gd" id="1_jyv4i"]
+[ext_resource type="Script" uid="uid://6teh2coj8oyo" path="res://core/playground/scripts/states/main_menu_state.gd" id="1_kb0p5"]
+[ext_resource type="Script" uid="uid://dmtus46hgla8h" path="res://core/playground/scripts/states/gameplay_state.gd" id="2_dop8w"]
+[ext_resource type="Script" uid="uid://7g4x0v0nm52x" path="res://core/playground/scripts/states/credits_state.gd" id="3_il2b1"]
+[ext_resource type="Script" uid="uid://bpf2ajr66pkgb" path="res://core/playground/scripts/states/exit_state.gd" id="4_il2b1"]
+[ext_resource type="Script" uid="uid://b4niyet07y3o" path="res://core/playground/scripts/orchestrators/main_menu_orchestrator.gd" id="6_7stwk"]
+[ext_resource type="PackedScene" uid="uid://dj1f8fqjvow60" path="res://main_screen/scenes/main_screen.tscn" id="6_c2qv1"]
+[ext_resource type="PackedScene" uid="uid://wjup2mbm681b" path="res://main_screen/scenes/main_screen_audio.tscn" id="7_7stwk"]
+[ext_resource type="PackedScene" uid="uid://da8tua68yn2j8" path="res://core/transitions/fade.tscn" id="8_xmhwn"]
+[ext_resource type="Script" uid="uid://bat1fil62dv6j" path="res://core/playground/scripts/orchestrators/gamepay_orchestrator.gd" id="10_3l0tc"]
+
+[sub_resource type="Animation" id="Animation_3l0tc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainScreen:process_mode")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0009999999),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainScreen:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0009999999),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MainScreenAudio:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [20.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MainScreenAudio:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3l0tc"]
+_data = {
+&"RESET": SubResource("Animation_3l0tc")
+}
+
+[sub_resource type="Animation" id="Animation_xmhwn"]
+resource_name = "on_exit"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainScreen:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainScreen:process_mode")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.01),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MainScreenAudio:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [20.0, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MainScreenAudio:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Fade")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"fade_out"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_phtaf"]
+_data = {
+&"on_exit": SubResource("Animation_xmhwn")
+}
+
+[sub_resource type="Animation" id="Animation_phtaf"]
+resource_name = "begin"
+length = 0.5
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"fade_in"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gvld1"]
+_data = {
+&"begin": SubResource("Animation_phtaf")
+}
+
+[node name="Playground" type="Node2D" unique_id=1428515191]
+
+[node name="SceneStateMachine" type="Node" parent="." unique_id=1534501946]
+script = ExtResource("1_jyv4i")
+
+[node name="MainMenu" type="Node" parent="SceneStateMachine" unique_id=1284853233 node_paths=PackedStringArray("main_menu")]
+script = ExtResource("1_kb0p5")
+main_menu = NodePath("../../MainMenu")
+
+[node name="Gameplay" type="Node" parent="SceneStateMachine" unique_id=1345145289 node_paths=PackedStringArray("gameplay")]
+script = ExtResource("2_dop8w")
+gameplay = NodePath("../../Gamepay")
+
+[node name="Credits" type="Node" parent="SceneStateMachine" unique_id=300879925]
+script = ExtResource("3_il2b1")
+
+[node name="Exit" type="Node" parent="SceneStateMachine" unique_id=180176799]
+script = ExtResource("4_il2b1")
+
+[node name="MainMenu" type="Node" parent="." unique_id=1320909138]
+script = ExtResource("6_7stwk")
+
+[node name="MainScreen" parent="MainMenu" unique_id=296631412 instance=ExtResource("6_c2qv1")]
+
+[node name="Fade" parent="MainMenu" unique_id=702075131 instance=ExtResource("8_xmhwn")]
+
+[node name="MainScreenAudio" parent="MainMenu" unique_id=57198389 instance=ExtResource("7_7stwk")]
+position = Vector2(-1, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MainMenu" unique_id=1419521184]
+libraries/ = SubResource("AnimationLibrary_3l0tc")
+libraries/main_menu = SubResource("AnimationLibrary_phtaf")
+autoplay = &"RESET"
+
+[node name="Gamepay" type="Node2D" parent="." unique_id=1420662411]
+script = ExtResource("10_3l0tc")
+
+[node name="Fade" parent="Gamepay" unique_id=1691192649 instance=ExtResource("8_xmhwn")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Gamepay" unique_id=81542710]
+libraries/gameplay_manager = SubResource("AnimationLibrary_gvld1")

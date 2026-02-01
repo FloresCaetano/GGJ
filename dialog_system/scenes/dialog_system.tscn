@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://c8sokf04vfota" path="res://dialog_system/scripts/dialog_system.gd" id="1_y0c5y"]
 [ext_resource type="Script" uid="uid://brmiww0ppkct5" path="res://dialog_system/resources/res_dialog_data.gd" id="2_1jkri"]
 [ext_resource type="FontFile" uid="uid://pbp6l3vlmc73" path="res://shared/Fonts/Baskervville-VariableFont_wght.ttf" id="2_3wh0d"]
+[ext_resource type="AudioStream" uid="uid://f43ji2s6qbs7" path="res://dialog_system/assets/Typing.mp3" id="5_0xsxe"]
 
 [sub_resource type="Resource" id="Resource_0xsxe"]
 script = ExtResource("2_1jkri")
@@ -95,3 +96,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1574940300]
+stream = ExtResource("5_0xsxe")
+volume_db = -10.0
+max_polyphony = 10

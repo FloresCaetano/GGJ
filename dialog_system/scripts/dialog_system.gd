@@ -54,7 +54,12 @@ func write_dialog(dialog):
 	l_name.text = dialog.character
 	
 	tween = get_tree().create_tween().set_trans(Tween.TRANS_LINEAR)
-	tween.tween_property(l_dialog, "visible_ratio", 1.0, time)
+	tween.tween_method(write, 0.0, 1.0, time)
+
+func write(visible_ratio):
+	l_dialog.visible_ratio = visible_ratio
+	if randf() > 0.92:
+		$AudioStreamPlayer.play()
 
 func end_dialog():
 	self.visible = false

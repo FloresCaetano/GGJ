@@ -24,7 +24,11 @@ func _transition_to_state(new_state: String) -> void:
 	is_transitioning = true
 
 	states[current_state].exit_state()
+	await states[current_state].exit_finished
+
 	current_state = states[new_state].get_state()
+	
 	states[current_state].enter_state()
+	await states[current_state].enter_finished
 
 	is_transitioning = false

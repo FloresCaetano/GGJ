@@ -1,6 +1,7 @@
 extends StateMachine
 
 @export var main_menu: MainMenuOrchestrator
+@export var fade: Fade
 
 func _ready() -> void:
 	super._ready()
@@ -24,8 +25,11 @@ func get_state() -> String:
 	return GAMEMANAGER.STATE_MAIN_MENU
 
 func enter_state() -> void:
-	pass
+	main_menu.visible = true
+	fade.fade_in()
 
 func exit_state() -> void:
 	_next_transition = get_state()
-	main_menu.close_menu()
+	await fade.fade_out()
+	await main_menu.close_menu()
+	exit_finished.emit()

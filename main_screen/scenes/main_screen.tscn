@@ -1,12 +1,18 @@
 [gd_scene format=3 uid="uid://dj1f8fqjvow60"]
 
 [ext_resource type="Script" uid="uid://kqlusuoawsud" path="res://main_screen/scripts/main_screen.gd" id="1_thusc"]
+[ext_resource type="Texture2D" uid="uid://dybbyjhkljrwt" path="res://main_screen/assets/rostro_prota.png" id="2_mvp8u"]
 [ext_resource type="FontFile" uid="uid://pbp6l3vlmc73" path="res://shared/Fonts/Baskervville-VariableFont_wght.ttf" id="2_rb0mj"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rb0mj"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rb0mj"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rb0mj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ltw2h"]
-font_size = 75
+font_size = 50
+font_color = Color(0, 0, 0, 1)
+shadow_color = Color(0.24115604, 0.24115604, 0.24115604, 0)
 
 [node name="MainScreen" type="Control" unique_id=296631412]
 layout_mode = 3
@@ -22,11 +28,9 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 5.0
-offset_right = 5.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_rb0mj")
+theme_override_styles/panel = SubResource("StyleBoxFlat_rb0mj")
 
 [node name="Container" type="MarginContainer" parent="Panel" unique_id=1903876360]
 layout_mode = 1
@@ -45,13 +49,24 @@ layout_mode = 2
 theme_override_constants/separation = 30
 alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel/Container/BoxContainer" unique_id=995517687]
+[node name="ColorRect" type="TextureRect" parent="Panel/Container/BoxContainer" unique_id=1268492939]
+material = SubResource("CanvasItemMaterial_rb0mj")
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/margin_left = 75
-theme_override_constants/margin_right = 75
+texture = ExtResource("2_mvp8u")
 
-[node name="Title" type="Label" parent="Panel/Container/BoxContainer/MarginContainer" unique_id=911612316]
+[node name="MarginContainer" type="MarginContainer" parent="Panel/Container/BoxContainer/ColorRect" unique_id=995517687]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 125
+theme_override_constants/margin_right = 125
+
+[node name="Title" type="Label" parent="Panel/Container/BoxContainer/ColorRect/MarginContainer" unique_id=911612316]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1

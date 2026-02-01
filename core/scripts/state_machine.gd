@@ -1,6 +1,9 @@
 @abstract
 class_name StateMachine extends Node
 
+signal enter_finished
+signal exit_finished
+
 func _ready() -> void:
     _next_transition = get_state()
 
@@ -17,9 +20,11 @@ func _set_next_transition(state: String) -> void:
 
 @abstract func get_state() -> String
 
-@abstract func enter_state() -> void
+func enter_state() -> void:
+    enter_finished.emit()
 
-@abstract func exit_state() -> void
+func exit_state() -> void:
+    exit_finished.emit()
 
 func transition_to() -> String:
     return _next_transition

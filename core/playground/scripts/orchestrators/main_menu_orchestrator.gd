@@ -1,4 +1,4 @@
-class_name MainMenuOrchestrator extends Node
+class_name MainMenuOrchestrator extends CanvasLayer
 
 @export var on_exit_animation: String = "main_menu/on_exit"
 
@@ -13,6 +13,8 @@ const EVENT_EXIT: String = "exit"
 
 func _ready() -> void:
 	menu.on_game.connect(_game_start)
+	menu.on_credits.connect(_credit_start)
+	menu.on_exit.connect(_exit_start)
 
 
 func _game_start() -> void:
@@ -26,3 +28,4 @@ func _exit_start() -> void:
 
 func close_menu() -> void:
 	anim.play(on_exit_animation)
+	await anim.animation_finished

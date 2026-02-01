@@ -109,3 +109,4 @@ debug_color = Color(0.8424195, 0.38068107, 0.058888905, 0.41960785)
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=668092387]
 position = Vector2(1, 264)
 stream = ExtResource("9_kaefl")
+volume_db = 20.0

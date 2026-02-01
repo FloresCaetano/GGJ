@@ -1,6 +1,7 @@
 class_name MaskInventory
 extends Control
 
+@onready var scene_parent : Control = get_tree().get_first_node_in_group("room_parent")
 @export var mask_container: GridContainer
 var masks : Array[Mask] = []
 
@@ -13,7 +14,9 @@ func mask_select_animation(mask : Control):
 	close()
 	var placeholder : Mask = mask.duplicate()
 	placeholder.set_script(null)
-	get_tree().current_scene.add_child(placeholder)
+
+	scene_parent.add_child(placeholder)
+	
 	placeholder.pivot_offset = Vector2.ZERO
 	var tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	tween.tween_property(placeholder, "global_position", PATHS.mask_slot.global_position, 1.0)
@@ -52,7 +55,7 @@ func open():
 		var target_pos = mask.global_position
 		var placeholder = mask.duplicate()
 		
-		get_tree().current_scene.add_child(placeholder)
+		scene_parent.add_child(placeholder)
 		
 		placeholder.global_position = start_position
 		placeholder.modulate.a = 1
